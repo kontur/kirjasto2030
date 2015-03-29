@@ -1,0 +1,49 @@
+.bgcolor-background {
+  background-color: #cecfd2;
+}
+.color-background {
+  color: #cecfd2;
+}
+.bgcolor-gray {
+  background-color: #939599;
+}
+.color-gray {
+  color: #939599;
+}
+.bgcolor-grid {
+  background-color: #e1e1e1;
+}
+.color-grid {
+  color: #e1e1e1;
+}
+.bgcolor-textLight {
+  background-color: #828489;
+}
+.color-textLight {
+  color: #828489;
+}
+.bgcolor-textDark {
+  background-color: #464a53;
+}
+.color-textDark {
+  color: #464a53;
+}
+body {
+  font-family: "ff-tisa-web-pro", "Times New Roman", Times, serif;
+  background: #cecfd2;
+  color: #828489;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  color: #464a53;
+}

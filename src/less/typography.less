@@ -1,0 +1,26 @@
+
+// typography mixins and helpers
+.fontSerif() {
+  font-family: "ff-tisa-web-pro", "Times New Roman", Times, serif;
+}
+
+// some generic font sizes
+// NOTE: dropping IE8 with rem
+@fontXS: 0.7rem;
+@fontS: 0.8rem;
+@fontM: 1rem;
+@fontL: 1.2rem;
+@fontXL: 2rem;
+
+
+// typography declarations
+
+body {
+  .fontSerif();
+  background: @background;
+  color: @textLight;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  color: @textDark;
+}
