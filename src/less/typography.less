@@ -4,13 +4,17 @@
   font-family: "ff-tisa-web-pro", "Times New Roman", Times, serif;
 }
 
+.fontSans() {
+  font-family: "ff-tisa-sans-web-pro", Lucida, sans-serif;
+}
+
 // some generic font sizes
 // NOTE: dropping IE8 with rem
 @fontXS: 0.7rem;
 @fontS: 0.8rem;
 @fontM: 1rem;
-@fontL: 1.2rem;
-@fontXL: 2rem;
+@fontL: 1.25rem;
+@fontXL: 2.25rem;
 
 
 // typography declarations
@@ -19,8 +23,67 @@ body {
   .fontSerif();
   background: @background;
   color: @textLight;
+  font-size: 0.85em;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   color: @textDark;
+  font-weight: 700;
+  padding-bottom: 0;
+  line-height: 1em;
+  position: relative;
+  text-transform: uppercase;
+
+  .underline {
+    background: @gray;
+    bottom: -@underlineThickness;
+    display: block;
+    height: @underlineThickness;
+    left: 0;
+    position: absolute;
+    width: 100%;
+
+    &.underline-gradient {
+      .gradient(@gradientBlue, @gradientCyan);
+    }
+  }
+}
+
+h1, .h1 {
+  font-size: @fontXL;
+}
+
+h2, .h2 {
+  font-size: @fontL;
+}
+
+// class for a div wrapping a h1 with span.underline inside
+// this will make the h1 inline-block, so the div needs to break the flow
+.headline {
+  padding: 0;
+
+  h1, .h1, h2, .h2 {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
+
+button, .button {
+  .fontSans();
+  border: 1px solid @grid;
+  background: @background;
+  color: @gray;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  padding: 0.5em 1em 0.25em;
+
+  &:hover, &:focus {
+    border: 1px solid @gradientBlue;
+    color: @gradientBlue;
+  }
+}
+
+.text {
+  max-width: 50em;
 }

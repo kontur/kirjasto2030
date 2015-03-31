@@ -4,22 +4,10 @@
     <title>Kirjasto 2030</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="//use.typekit.net/xso3xmb.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
-
-    <script>
-        WebFontConfig = {
-            google: { families: [ 'Open+Sans::latin' ] }
-        };
-        (function() {
-            var wf = document.createElement('script');
-            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-            wf.type = 'text/javascript';
-            wf.async = 'true';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(wf, s);
-        })();
-    </script>
+    <script>try {
+        Typekit.load();
+    } catch (e) {
+    }</script>
 
     <style type="text/css">
         .swatch {
@@ -30,16 +18,22 @@
             width: 1em;
         }
     </style>
+    <meta charset="utf-8">
 </head>
 <body>
 
 <h1>Typography</h1>
 
-<h1>Lorem ipsum h1 or .h1</h1>
+<h1>Lorem ipsum <code>h1</code> or <code>.h1</code> with <code>span.underline.underline-gradient</code><span class="underline underline-gradient"></span></h1>
 
-<h2>Pharetra Magna Mollis h2 or .h2</h2>
+<h2>Pharetra Magna Mollis <code>h2</code> or <code>.h2</code> with <code>span.underline.underline-gradient</code><span
+        class="underline underline-gradient"></span></h2>
 
 <p>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae
+    elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+
+<p class="text">Applying <code>.text</code> to any element will ensure maximum width for readability. Curabitur blandit tempus
+    porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae
     elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
 
 <p><strong>Curabitur blandit tempus porttitor.</strong> Integer posuere erat a ante <em>venenatis dapibus</em> posuere
@@ -49,17 +43,21 @@
     vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 </small>
 
-<button>Label</button>
-
+<p>
+    <button>Label</button>
+</p>
 
 <h1>Colors</h1>
-<p>Usable with .bgcolor- or .color-</p>
+
+<p>Usable with <code>.bgcolor-</code>- or <code>.color-</code></p>
 <ul>
     <li><span class="swatch bgcolor-background"></span>background</li>
     <li><span class="swatch bgcolor-gray"></span>gray</li>
     <li><span class="swatch bgcolor-grid"></span>grid</li>
     <li><span class="swatch bgcolor-textLight"></span>textLight</li>
     <li><span class="swatch bgcolor-textDark"></span>textDark</li>
+    <li><span class="swatch bgcolor-gradientBlue"></span>gradientBlue</li>
+    <li><span class="swatch bgcolor-gradientCyan"></span>gradientCyan</li>
 </ul>
 
 <script src="assets/js/libs.js"></script>

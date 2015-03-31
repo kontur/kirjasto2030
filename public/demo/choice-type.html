@@ -2,12 +2,126 @@
 <html>
 <head>
     <title>Kirjasto 2030</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <base href="../">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="//use.typekit.net/xso3xmb.js"></script>
+    <script>try {
+        Typekit.load();
+    } catch (e) {
+    }</script>
+    <meta charset="utf-8">
+
+    <style type="text/css">
+        .replaced-highlight {
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-hello world++
-<script src="assets/js/libs.js"></script>
-<script src="assets/js/main.js"></script>
+
+<div id="example1" class="text">
+    <div class="headline"><h1>Ligula Aenean <span class="underline underline-gradient"></span></h1></div>
+
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis interdum. Vestibulum id
+        ligula porta felis euismod semper. <span>Curabitur blandit tempus porttitor.</span></p>
+
+    <p>Etiam porta sem malesuada magna mollis euismod. <span>Nulla vitae elit libero</span>, a pharetra augue. Sed posuere
+        consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies
+        vehicula ut id elit.</p>
+
+    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <span>Etiam porta sem malesuada</span> magna
+        mollis euismod. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit.</p>
+
+    <p>Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada
+        magna mollis euismod. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a
+        pharetra augue. Cras mattis consectetur purus sit amet fermentum. <span>Maecenas sed diam eget risus varius blandit
+        sit amet non magna.</span></p>
+    <br>
+    <h2>Entäs jos?</h2>
+    <button>Eri tarina</button>
+</div>
+<br><br><br>
+
+<div id="example2" class="text">
+    <div class="headline"><h1>Ligula Aenean <span class="underline underline-gradient"></span></h1></div>
+
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis interdum. Vestibulum id
+        ligula porta felis euismod semper. <span>Curabitur blandit tempus porttitor.</span></p>
+
+    <p>Etiam porta sem malesuada magna mollis euismod. <span>Nulla vitae elit libero</span>, a pharetra augue. Sed posuere
+        consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies
+        vehicula ut id elit.</p>
+
+    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. <span>Etiam porta sem malesuada</span> magna
+        mollis euismod. Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit.</p>
+
+    <p>Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada
+        magna mollis euismod. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a
+        pharetra augue. Cras mattis consectetur purus sit amet fermentum. <span>Maecenas sed diam eget risus varius blandit
+        sit amet non magna.</span></p>
+    <br>
+    <h2>Entäs jos?</h2>
+    <button>Eri tarina</button>
+</div>
+<script src="/assets/js/libs.js"></script>
+<script src="/assets/js/main.js"></script>
+
+<script>
+    phrases = [
+        "Donec id elit non mi porta gravida at eget metus.",
+        "Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo.",
+        "Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+        "Donec ullamcorper nulla non metus auctor fringilla.",
+        "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."
+    ];
+    function randomPhrase() {
+        return phrases[Math.floor(Math.random() * phrases.length)];
+    }
+
+    // examples
+    $(function () {
+
+        // example 1: retyping
+        $('#example1 button').click(function () {
+            retype($("#example1"));
+        });
+
+        function retype($obj) {
+            $obj.find('p span').each(function () {
+                if ($(this).hasClass('replaced')) {
+                    $(this).typeTo($(this).data('original')).removeClass('replaced');
+                } else {
+                    $(this).data('original', $(this).html());
+                    $(this).typeTo(randomPhrase()).addClass('replaced');
+                }
+            });
+        }
+
+
+        // example 2: fades
+        $('#example2 button').click(function () {
+            crossfade($("#example2"));
+        });
+
+        function crossfade($obj) {
+            $obj.find('p span').each(function () {
+                if ($(this).hasClass('replaced-highlight')) {
+                    $(this).fadeOut(function () {
+                        $(this).html($(this).data('original')).removeClass('replaced-highlight');
+                        $(this).fadeIn();
+                    });
+                } else {
+                    $(this).data('original', $(this).html());
+                    $(this).fadeOut(function () {
+                        $(this).html(randomPhrase()).addClass('replaced-highlight');
+                        $(this).fadeIn();
+                    });
+                }
+            });
+        }
+
+    });
+</script>
 </body>
 </html>

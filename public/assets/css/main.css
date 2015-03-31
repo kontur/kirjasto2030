@@ -28,10 +28,23 @@
 .color-textDark {
   color: #464a53;
 }
+.bgcolor-gradientBlue {
+  background-color: #008bfd;
+}
+.color-gradientBlue {
+  color: #008bfd;
+}
+.bgcolor-gradientCyan {
+  background-color: #00f579;
+}
+.color-gradientCyan {
+  color: #00f579;
+}
 body {
   font-family: "ff-tisa-web-pro", "Times New Roman", Times, serif;
   background: #cecfd2;
   color: #828489;
+  font-size: 0.85em;
 }
 h1,
 .h1,
@@ -46,4 +59,97 @@ h5,
 h6,
 .h6 {
   color: #464a53;
+  font-weight: 700;
+  padding-bottom: 0;
+  line-height: 1em;
+  position: relative;
+  text-transform: uppercase;
+}
+h1 .underline,
+.h1 .underline,
+h2 .underline,
+.h2 .underline,
+h3 .underline,
+.h3 .underline,
+h4 .underline,
+.h4 .underline,
+h5 .underline,
+.h5 .underline,
+h6 .underline,
+.h6 .underline {
+  background: #939599;
+  bottom: -4px;
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+h1 .underline.underline-gradient,
+.h1 .underline.underline-gradient,
+h2 .underline.underline-gradient,
+.h2 .underline.underline-gradient,
+h3 .underline.underline-gradient,
+.h3 .underline.underline-gradient,
+h4 .underline.underline-gradient,
+.h4 .underline.underline-gradient,
+h5 .underline.underline-gradient,
+.h5 .underline.underline-gradient,
+h6 .underline.underline-gradient,
+.h6 .underline.underline-gradient {
+  background: #008bfd;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #008bfd), color-stop(100%, #00a1ff));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* IE10+ */
+  background: linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+h1,
+.h1 {
+  font-size: 2.25rem;
+}
+h2,
+.h2 {
+  font-size: 1.25rem;
+}
+.headline {
+  padding: 0;
+}
+.headline h1,
+.headline .h1,
+.headline h2,
+.headline .h2 {
+  display: inline-block;
+  margin-bottom: 0;
+}
+button,
+.button {
+  font-family: "ff-tisa-sans-web-pro", Lucida, sans-serif;
+  border: 1px solid #e1e1e1;
+  background: #cecfd2;
+  color: #939599;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  padding: 0.5em 1em 0.25em;
+}
+button:hover,
+.button:hover,
+button:focus,
+.button:focus {
+  border: 1px solid #008bfd;
+  color: #008bfd;
+}
+.text {
+  max-width: 50em;
 }

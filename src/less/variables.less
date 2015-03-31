@@ -1,5 +1,13 @@
 
 
+// layout
+@gutter: 2rem;
+@gridThickness: 1px;
+@underlineThickness: 4px;
+
+// animation
+@hoverTransition: "all ease-in-out 0.2s";
+
 // colors
 @background: #cecfd2;
 @gray: #939599; // darker underlines
@@ -22,3 +30,18 @@
 .color-textLight { color: @textLight; }
 .bgcolor-textDark { background-color: @textDark; }
 .color-textDark { color: @textDark; }
+.bgcolor-gradientBlue { background-color: @gradientBlue; }
+.color-gradientBlue { color: @gradientBlue; }
+.bgcolor-gradientCyan { background-color: @gradientCyan; }
+.color-gradientCyan { color: @gradientCyan; }
+
+.gradient(@from, @to) {
+  background: @from; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  @from 0%, @to); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,@from), color-stop(100%,rgb(0,161,255))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  @from 0%, @to); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  @from 0%, @to); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  @from 0%, @to); /* IE10+ */
+  background: linear-gradient(45deg,  @from 0%, @to); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endColorstr='@to',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
