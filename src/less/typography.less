@@ -79,8 +79,21 @@ button, .button {
   padding: 0.5em 1em 0.25em;
 
   &:hover, &:focus {
+    background: @grid;
     border: 1px solid @gradientBlue;
     color: @gradientBlue;
+  }
+}
+
+a {
+  color: @gradientBlue;
+  display: inline-block;
+  outline: none;
+  text-decoration: none;
+  padding: 0 0.5em;
+
+  &:hover, &:focus {
+    background: @grid;
   }
 }
 

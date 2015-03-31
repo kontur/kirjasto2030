@@ -147,9 +147,24 @@ button:hover,
 .button:hover,
 button:focus,
 .button:focus {
+  background: #e1e1e1;
   border: 1px solid #008bfd;
   color: #008bfd;
 }
+a {
+  color: #008bfd;
+  display: inline-block;
+  outline: none;
+  text-decoration: none;
+  padding: 0 0.5em;
+}
+a:hover,
+a:focus {
+  background: #e1e1e1;
+}
 .text {
   max-width: 50em;
+}
+body {
+  margin: 2em 2em 5em;
 }
