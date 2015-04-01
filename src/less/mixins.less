@@ -6,13 +6,15 @@
 }
 
 .screen-md(@declarations) {
-  @media (min-width: 40em) {
+  @media (min-width: @screen-sm-max) {
     @declarations();
   }
 }
 
 .screen-lg(@declarations) {
-
+  @media (min-width: @screen-md-max) {
+    @declarations();
+  }
 }
 
 

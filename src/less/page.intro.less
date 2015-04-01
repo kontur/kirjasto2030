@@ -1,0 +1,33 @@
+
+.page-intro {
+  height: 100%;
+
+  h2, .h2, h3, .h3 {
+    display: block;
+  }
+  h2 {
+    margin-right: @gutter;
+  }
+  
+  .screen-md({
+    .col {
+      height: 100%;
+      position: relative;
+    }
+
+    .hero {
+      .box-sizing(border-box);
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      padding-right: @gutter;
+    }
+
+    footer {
+      position: absolute;
+      bottom: @buttonMargin;
+      .make-col();
+    }
+  });
+
+}

@@ -31,7 +31,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   color: @textDark;
   font-weight: 700;
   padding-bottom: 0;
-  line-height: 1em;
+  line-height: 1.1em;
   position: relative;
   text-transform: uppercase;
 
@@ -47,6 +47,15 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     &.underline-gradient {
       .gradient(@gradientBlue, @gradientCyan);
     }
+
+    &.underline-solid {
+      background: @textDark;
+    }
+  }
+
+  // make nested links inside h tags to blend in with general heading style
+  a {
+    color: inherit;
   }
 }
 
@@ -66,6 +75,7 @@ h2, .h2 {
   h1, .h1, h2, .h2 {
     display: inline-block;
     margin-bottom: 0;
+    margin-top: 0.15em;
   }
 }
 

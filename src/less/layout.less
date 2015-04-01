@@ -1,5 +1,53 @@
-
+html {
+  height: 100%; // force full page for making layouts that span 100% even though floated
+}
 
 body {
-  margin: 2em 2em 5em;
+  margin: 0;
+  height: 100%;
+}
+
+// the main content container on the page
+// though not explicit with #id it is unique in the DOM
+// usees .page-xxx to differentiate content pages
+main {
+  margin: 0;
+}
+
+.col {
+  .make-col();
+}
+.make-col() {
+
+  @border: 1px solid @grid;
+
+  .box-sizing(border-box);
+  border-left: @border;
+  border-right: @border;
+  padding: @gutter;
+
+  .screen-md({
+    border-left: 0;
+    float: left;
+    width: 100/3%;
+
+  &:first-child {
+    border-left: @border;
+  }
+
+  &:nth-of-type(3n + 3) {
+    border-right: 0;
+  }
+  });
+
+  .screen-lg({
+    width: 100/4%;
+
+  &:nth-of-type(3n + 3) {
+    border-right: @border;
+  }
+  &:nth-of-type(4n + 4) {
+    border-right: 0;
+  }
+  });
 }

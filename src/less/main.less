@@ -1,13 +1,21 @@
+/**
+ * main less file for compiling all css
+ */
 
+// reset browser quirks
+@import "../../bower_components/normalize-less/normalize.less";
+
+// polyfill vendor prefixes where needed
 @import "../../bower_components/less-prefixer/prefixer.less";
 
+// general setup
 @import "variables.less";
 @import "mixins.less";
 
+// site wide declarations
 @import "typography.less";
 @import "layout.less";
 @import "navigation.less";
 
-body {
-
-}
+// page specific declarations
+@import "page.intro.less";
