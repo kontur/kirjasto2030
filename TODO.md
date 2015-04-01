@@ -6,11 +6,11 @@
 
 ## public/index.html
 
--  [ ] **TODO** `(line 20)`  add iconfont and menu icons here --->
--  [ ] **TODO** `(line 26)`  add actual page names and links -->
--  [ ] **TODO** `(line 40)`  switch to .min for production -->
+-  [ ] **TODO** `(line 25)`  make these prev and next buttons change on route change-->
+-  [ ] **TODO** `(line 30)`  add actual page names and links -->
+-  [ ] **TODO** `(line 43)`  switch to .min for production -->
 
 
 * * *
 
-Last generated: Wed Apr 01 2015 15:29:08 by [grunt-todo](https://github.com/leny/grunt-todo).
+Last generated: Wed Apr 01 2015 15:59:32 by [grunt-todo](https://github.com/leny/grunt-todo).

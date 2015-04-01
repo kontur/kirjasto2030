@@ -8,6 +8,12 @@
 // polyfill vendor prefixes where needed
 @import "../../bower_components/less-prefixer/prefixer.less";
 
+// iconfont from bootstrap (bootstrap otherwise unused atm)
+@import "../../bower_components/bootstrap/less/variables.less";
+// overwrite font directory
+@icon-font-path: "../fonts/";
+@import "../../bower_components/bootstrap/less/glyphicons.less";
+
 // general setup
 @import "variables.less";
 @import "mixins.less";

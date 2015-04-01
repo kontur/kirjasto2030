@@ -18,6 +18,8 @@
     "jquery.typer": "https://github.com/kontur/jquery.typer.js.git",
     "less-prefixer": "*",
     "normalize-less": "*",
-    "sammy": "~0.7.6"
+    "sammy": "~0.7.6",
+    "foundation-icons": "*",
+    "bootstrap": "~3.3.4"
   }
 }

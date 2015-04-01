@@ -24,6 +24,7 @@
     > button, > .button {
       width: 33.33%;
       position: fixed;
+      height: @buttonSize;
     }
 
     .button-left-bottom {
@@ -36,12 +37,37 @@
       position: absolute;
       left: 33.33%;
       bottom: 0;
+      span {
+        display: none;
+      }
+
+      i {
+        .transition(@hoverTransition);
+        opacity: 1;
+        z-index: 10;
+      }
+
+      i.glyphicon-remove {
+        opacity: 0;
+        z-index: 5;
+      }
     }
 
     .button-right-bottom {
       position: absolute;
       right: 0;
       bottom: 0;
+    }
+  }
+
+  &.open .button-menu {
+    i.glyphicon-menu-hamburger {
+      opacity: 0;
+      z-index: 5;
+    }
+    i.glyphicon-remove {
+      opacity: 1;
+      z-index: 10;
     }
   }
 
