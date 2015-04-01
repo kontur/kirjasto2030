@@ -1,5 +1,8 @@
-/*! kirjasto2030 - v0.0.0 - 2015-04-01
-* Copyright (c) 2015 ;*/
+/**
+ * main application file with routing and ajax content changing
+ */
+
+
 // using sammy framework for simple routing, nothing much more at the moment 
 var app = $.sammy(function () {
 
@@ -42,20 +45,4 @@ var app = $.sammy(function () {
 
 $(function () {
   app.run();
-});
-$(function () {
-  var $nav = $("#page-navigation"),
-      $pages = $nav.find("#pages"),
-      $button = $(".button-menu");
-
-  $button.on("click", toggleNav);
-  $pages.on("click", "a", closeNav);
-
-  function toggleNav() {
-    $nav.toggleClass("open");
-  }
-
-  function closeNav() {
-    $nav.removeClass("open");
-  }
 });

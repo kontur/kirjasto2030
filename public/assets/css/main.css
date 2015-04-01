@@ -483,6 +483,7 @@ main {
   margin: 0;
   right: 0;
   width: 15em;
+  z-index: 10;
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);

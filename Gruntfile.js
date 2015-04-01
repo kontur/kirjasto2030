@@ -23,6 +23,7 @@ module.exports = function (grunt) {
       libs: {
         src: [
           'bower_components/jquery/dist/jquery.js',
+          'bower_components/sammy/lib/sammy.js',
           'bower_components/jquery.typer/src/jquery.typer.js'
         ],
         dest: 'public/assets/js/libs.js'
@@ -58,18 +59,18 @@ module.exports = function (grunt) {
         unused: true,
         boss: true,
         eqnull: true,
-        browser: true,
-        globals: {
-          jQuery: true,
-          $: true
-        }
+        browser: true
       },
       gruntfile: {
         src: 'Gruntfile.js'
       },
       main: {
         options: {
-          latedef: false
+          latedef: false,
+          globals: {
+            $: true,
+            console: true
+          }
         },
         src: 'src/js/*.js'
       }
