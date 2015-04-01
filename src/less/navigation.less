@@ -1,0 +1,73 @@
+/**
+ * All the main navigation components:
+ * prev / next buttons, slide-out navigation
+ */
+
+#page-navigation {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+
+  // wrapper for all the navigation buttons
+  // on mobile this is a fixed list, on desktop they are spread out over the screen corners
+  .buttons {
+    background: @grid;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 2em;
+    width: 100%;
+    z-index: 100;
+
+    > button, > .button {
+      width: 33.33%;
+      position: fixed;
+    }
+
+    .button-left-bottom {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .button-menu {
+      position: absolute;
+      left: 33.33%;
+      bottom: 0;
+    }
+
+    .button-right-bottom {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  // the list holding the actual pages in the navigtation
+  #pages {
+    background: @grid;
+    display: block;
+    list-style-type: none;
+    height: 100%;
+    padding: 0;
+    position: fixed;
+    margin: 0;
+    right: 0;
+    width: @navWidth;
+    .transform(translateX(100%));
+    .transition(@navTransition);
+  }
+
+  &.open #pages {
+    .transform(translateX(0));
+  }
+
+  // responsive upgrades for larger than mobile screens:
+  @media (min-width: @screen-sm-max) {
+    @import "navigation.md.less";
+  }
+
+}
+

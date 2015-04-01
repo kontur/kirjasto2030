@@ -97,6 +97,13 @@ h5 .underline.underline-gradient,
 .h5 .underline.underline-gradient,
 h6 .underline.underline-gradient,
 .h6 .underline.underline-gradient {
+  background-color: #008bfd;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00f579), color-stop(100% #ffffff));
+  background-image: -webkit-linear-gradient(top, #00f579 0%, #ffffff 100%);
+  background-image: -moz-linear-gradient(top, #00f579 0%, #ffffff 100%);
+  background-image: -ms-linear-gradient(top, #00f579 0%, #ffffff 100%);
+  background-image: -o-linear-gradient(top, #00f579 0%, #ffffff 100%);
+  background-image: linear-gradient(top, #00f579 0%, #ffffff 100%);
   background: #008bfd;
   /* Old browsers */
   background: -moz-linear-gradient(45deg, #008bfd 0%, #00f579);
@@ -135,11 +142,16 @@ h2,
 button,
 .button {
   font-family: "ff-tisa-sans-web-pro", Lucida, sans-serif;
+  font-weight: 400;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   border: 1px solid #e1e1e1;
   background: #cecfd2;
   color: #939599;
   cursor: pointer;
   display: inline-block;
+  font-size: 0.8rem;
   outline: none;
   padding: 0.5em 1em 0.25em;
 }
@@ -167,4 +179,125 @@ a:focus {
 }
 body {
   margin: 2em 2em 5em;
+}
+/**
+ * All the main navigation components:
+ * prev / next buttons, slide-out navigation
+ */
+#page-navigation {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+}
+#page-navigation .buttons {
+  background: #e1e1e1;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 2em;
+  width: 100%;
+  z-index: 100;
+}
+#page-navigation .buttons > button,
+#page-navigation .buttons > .button {
+  width: 33.33%;
+  position: fixed;
+}
+#page-navigation .buttons .button-left-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#page-navigation .buttons .button-menu {
+  position: absolute;
+  left: 33.33%;
+  bottom: 0;
+}
+#page-navigation .buttons .button-right-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+#page-navigation #pages {
+  background: #e1e1e1;
+  display: block;
+  list-style-type: none;
+  height: 100%;
+  padding: 0;
+  position: fixed;
+  margin: 0;
+  right: 0;
+  width: 15em;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  -ms-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+#page-navigation.open #pages {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+@media (min-width: 30em) {
+  #page-navigation .buttons {
+    background: transparent;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    width: 100%;
+    height: 0;
+    position: absolute;
+  }
+  #page-navigation .buttons > button,
+  #page-navigation .buttons > .button {
+    position: fixed;
+  }
+  #page-navigation .buttons .button-left-bottom {
+    left: auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    height: auto;
+    width: auto;
+    bottom: 1em;
+    left: 1em;
+  }
+  #page-navigation .buttons .button-right-bottom {
+    left: auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    height: auto;
+    width: auto;
+    bottom: 1em;
+    right: 1em;
+  }
+  #page-navigation .buttons .button-menu {
+    left: auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    height: auto;
+    width: auto;
+    right: 1em;
+    top: 1em;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    -ms-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  #page-navigation.open .button-menu {
+    right: 17em !important;
+  }
 }

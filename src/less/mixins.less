@@ -1,0 +1,27 @@
+
+
+// TODO all responsive declaration shortcuts
+.screen-sm(@declarations) {
+
+}
+
+.screen-md(@declarations) {
+  @media (min-width: 40em) {
+    @declarations();
+  }
+}
+
+.screen-lg(@declarations) {
+
+}
+
+
+// helper to null the dimensions and position of a layoutbox
+.resetBox() {
+  left: auto;
+  right: auto;
+  bottom: auto;
+  top: auto;
+  height: auto;
+  width: auto;
+}

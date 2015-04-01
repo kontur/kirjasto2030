@@ -6,6 +6,7 @@
 
 .fontSans() {
   font-family: "ff-tisa-sans-web-pro", Lucida, sans-serif;
+  font-weight: 400;
 }
 
 // some generic font sizes
@@ -68,13 +69,16 @@ h2, .h2 {
   }
 }
 
+// buttons or button-looking elements (like a links etc)
 button, .button {
   .fontSans();
+  .box-sizing(border-box);
   border: 1px solid @grid;
   background: @background;
   color: @gray;
   cursor: pointer;
   display: inline-block;
+  font-size: @fontS;
   outline: none;
   padding: 0.5em 1em 0.25em;
 
@@ -97,6 +101,7 @@ a {
   }
 }
 
+// basic .text class to make sure columns don't get too wide
 .text {
   max-width: 50em;
 }

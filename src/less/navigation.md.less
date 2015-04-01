@@ -1,0 +1,38 @@
+
+.buttons {
+  background: transparent;
+  left: 0;
+  top: 0;
+  bottom: auto;
+  width: 100%;
+  height: 0;
+  position: absolute;
+
+  > button, > .button {
+    position: fixed;
+  }
+
+  .button-left-bottom {
+    .resetBox();
+    bottom: @buttonMargin;
+    left: @buttonMargin;
+  }
+
+  .button-right-bottom {
+    .resetBox();
+    bottom: @buttonMargin;
+    right: @buttonMargin;
+  }
+
+  .button-menu {
+    .resetBox();
+    right: @buttonMargin;
+    top: @buttonMargin;
+    .transition(@navTransition);
+  }
+}
+
+
+&.open .button-menu {
+  right: @navWidth + @buttonMargin * 2 !important;
+}

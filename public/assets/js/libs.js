@@ -1,4 +1,4 @@
-/*! kirjasto2030 - v0.0.0 - 2015-03-28
+/*! kirjasto2030 - v0.0.0 - 2015-04-01
 * Copyright (c) 2015 ;*/
 /*!
  * jQuery JavaScript Library v2.1.3
@@ -9219,35 +9219,23 @@ String.prototype.rightChars = function(n){
 };
 
 (function($) {
-  var
-    options = {
-      highlightSpeed    : 20,
-      typeSpeed         : 100,
-      clearDelay        : 500,
-      typeDelay         : 200,
-      clearOnHighlight  : true,
-      typerDataAttr     : 'data-typer-targets',
-      typerInterval     : 2000
-    },
-    highlight,
-    clearText,
-    backspace,
-    type,
-    spanWithColor,
-    clearDelay,
-    typeDelay,
-    clearData,
-    isNumber,
-    typeWithAttribute,
-    getHighlightInterval,
-    getTypeInterval,
-    typerInterval;
+  var opts,
+      highlight,
+      clearText,
+      type,
+      spanWithColor,
+      clearDelay,
+      typeDelay,
+      clearData,
+      isNumber,
+      typeWithAttribute,
+      getHighlightInterval,
+      getTypeInterval,
+      intervalHandle,
+      typerInterval;
+
 
   spanWithColor = function(color, backgroundColor) {
-    if (color === 'rgba(0, 0, 0, 0)') {
-      color = 'rgb(255, 255, 255)';
-    }
-
     return $('<span></span>')
       .css('color', color)
       .css('background-color', backgroundColor);
@@ -9286,7 +9274,6 @@ String.prototype.rightChars = function(n){
       return;
     }
 
-
     $e.text(
       oldLeft +
       text.charAt(0) +
@@ -9318,7 +9305,8 @@ String.prototype.rightChars = function(n){
       position = $e.data('highlightPosition'),
       leftText,
       highlightedText,
-      rightText;
+      rightText,
+      options = $e.data('options');
 
     if (!isNumber(position)) {
       position = $e.data('rightStop') + 1;
@@ -9338,8 +9326,8 @@ String.prototype.rightChars = function(n){
     $e.html(leftText)
       .append(
         spanWithColor(
-            $e.data('backgroundColor'),
-            $e.data('primaryColor')
+            options.highlightColor === 'auto' ? $e.css('background-color') : options.highlightColor,
+            options.backgroundColor === 'auto' ? $e.css('color') : options.backgroundColor
           )
           .append(highlightedText)
       )
@@ -9352,90 +9340,111 @@ String.prototype.rightChars = function(n){
     }, getHighlightInterval());
   };
 
-  typeWithAttribute = function ($e) {
-    var targets;
+  typeWithAttribute = (function () {
+    var last = 0;
 
-    if ($e.data('typing')) {
-      return;
-    }
+    return function($e) {
+      var targets;
+      var options = $e.data('options');
 
-    try {
-      targets = JSON.parse($e.attr($.typer.options.typerDataAttr)).targets;
-    } catch (e) {}
+      if ($e.data('typing')) {
+        return;
+      }
 
-    if (typeof targets === "undefined") {
-      targets = $.map($e.attr($.typer.options.typerDataAttr).split(','), function (e) {
-        return $.trim(e);
-      });
-    }
+      try {
+        targets = JSON.parse($e.attr(options.typerDataAttr)).targets;
+      } catch (e) {}
 
-    $e.typeTo(targets[Math.floor(Math.random()*targets.length)]);
-  };
+      if (typeof targets === "undefined") {
+        targets = $.map($e.attr(options.typerDataAttr).split(','), function (e) {
+          return $.trim(e);
+        });
+      }
 
-  // Expose our options to the world.
-  $.typer = (function () {
-    return { options: options };
+      if (options.typerOrder === 'random') {
+        $e.typeTo(targets[Math.floor(Math.random()*targets.length)]);
+      }
+      else if (options.typerOrder === 'sequential') {
+        $e.typeTo(targets[last]);
+        last = (last < targets.length - 1) ? last + 1 : 0;
+      }
+      else {
+        console.error("Type order of '" + options.typerOrder + "' not supported");
+        clearInterval(intervalHandle);
+      }
+    };
   })();
-
-  $.extend($.typer, {
-    options: options
-  });
 
   //-- Methods to attach to jQuery sets
 
-  $.fn.typer = function() {
+  $.fn.typer = function(options) {
     var $elements = $(this);
+
+    if ($elements.length < 1) {
+      return;
+    }
+
+    opts = jQuery.extend({}, $.fn.typer.defaults, options);
 
     return $elements.each(function () {
       var $e = $(this);
+      $e.data('options', opts);
 
-      if (typeof $e.attr($.typer.options.typerDataAttr) === "undefined") {
+      if (typeof $e.attr(opts.typerDataAttr) === "undefined") {
         return;
       }
 
       typeWithAttribute($e);
-      setInterval(function () {
+      intervalHandle = setInterval(function () {
         typeWithAttribute($e);
       }, typerInterval());
     });
   };
 
-  $.fn.typeTo = function (newString) {
+  $.fn.typeTo = function (newString, options) {
     var
       $e = $(this),
       currentText = $e.text(),
       i = 0,
-      j = 0;
+      j = 0,
+      opts = jQuery.extend({}, $.fn.typer.defaults, options, $e.data('options'));
 
     if (currentText === newString) {
-      console.log("Our strings our equal, nothing to type");
+      if (opts.debug === true) {
+        console.log("Our strings our equal, nothing to type");
+      }
       return $e;
     }
 
     if (currentText !== $e.html()) {
-      console.error("Typer does not work on elements with child elements.");
+      if (opts.debug === true) {
+        console.error("Typer does not work on elements with child elements.");
+      }
       return $e;
     }
 
     $e.data('typing', true);
 
-    while (currentText.charAt(i) === newString.charAt(i)) {
-      i++;
-    }
+    if (opts.highlightEverything !== true) {
+      while (currentText.charAt(i) === newString.charAt(i)) {
+        i++;
+      }
 
-    while (currentText.rightChars(j) === newString.rightChars(j)) {
-      j++;
+      while (currentText.rightChars(j) === newString.rightChars(j)) {
+        j++;
+      }
     }
 
     newString = newString.substring(i, newString.length - j + 1);
 
     $e.data({
+      options: opts,
       oldLeft: currentText.substring(0, i),
       oldRight: currentText.rightChars(j - 1),
       leftStop: i,
       rightStop: currentText.length - j,
-      primaryColor: $e.css('color'),
-      backgroundColor: $e.css('background-color'),
+      //primaryColor: opts.backgroundColor === 'auto' ? $e.data('primaryColor') : opts.backgroundColor,
+      //backgroundColor: $e.css('background-color'),
       text: newString
     });
 
@@ -9447,22 +9456,38 @@ String.prototype.rightChars = function(n){
   //-- Helper methods. These can one day be customized further to include things like ranges of delays.
 
   getHighlightInterval = function () {
-    return $.typer.options.highlightSpeed;
+    return opts.highlightSpeed;
   };
 
   getTypeInterval = function () {
-    return $.typer.options.typeSpeed;
-  },
+    return opts.typeSpeed;
+  };
 
   clearDelay = function () {
-    return $.typer.options.clearDelay;
-  },
+    return opts.clearDelay;
+  };
 
   typeDelay = function () {
-    return $.typer.options.typeDelay;
+    return opts.typeDelay;
   };
 
   typerInterval = function () {
-    return $.typer.options.typerInterval;
+    return opts.typerInterval;
   };
+
+  $.fn.typer.defaults = {
+    highlightSpeed      : 20,
+    typeSpeed           : 100,
+    clearDelay          : 500,
+    typeDelay           : 200,
+    clearOnHighlight    : true,
+    highlightEverything : true,
+    typerDataAttr       : 'data-typer-targets',
+    typerInterval       : 2000,
+    debug               : false,
+    backgroundColor     : 'auto',
+    highlightColor      : 'auto',
+    typerOrder          : 'random'
+  };
+
 })(jQuery);

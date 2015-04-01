@@ -1,5 +1,6 @@
-/*! kirjasto2030 - v0.0.0 - 2015-04-01
-* Copyright (c) 2015 ;*/
+/**
+ * navigation components
+ */
 $(function () {
   var $nav = $("#page-navigation"),
       //$pages = $nav.find("#pages"),

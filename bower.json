@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.3",
-    "jquery.typer": "https://github.com/kontur/jquery.typer.js.git"
+    "jquery.typer": "https://github.com/kontur/jquery.typer.js.git",
+    "less-prefixer": "*"
   }
 }

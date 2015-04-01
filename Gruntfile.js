@@ -60,11 +60,18 @@ module.exports = function (grunt) {
         eqnull: true,
         browser: true,
         globals: {
-          jQuery: true
+          jQuery: true,
+          $: true
         }
       },
       gruntfile: {
         src: 'Gruntfile.js'
+      },
+      main: {
+        options: {
+          latedef: false
+        },
+        src: 'src/js/*.js'
       }
     },
     less: {
