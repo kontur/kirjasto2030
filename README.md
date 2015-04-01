@@ -18,6 +18,7 @@ up until 2030.
 ## Developing
 * for js / less, run grunt watcher `$ grunt watch`
 * to preview locally at [http://localhost:9292/](http://localhost:9292/) run `$ rackup`
+* TODO.md has an automatically generated list of tasks from any comments containing "TODO" in the source code
 
 ## Deployment to heroku
 
