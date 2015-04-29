@@ -17,6 +17,16 @@ main {
 .col {
   .make-col();
 }
+
+.col.col-wide {
+  .screen-md({
+    width: 100/3% * 2;
+  });
+  .screen-lg({
+    width: 100/2%;
+  });
+}
+
 .make-col() {
 
   @border: 1px solid @grid;

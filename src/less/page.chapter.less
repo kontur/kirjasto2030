@@ -1,0 +1,41 @@
+
+
+@storyMargin: 10rem;
+
+
+.stories {
+  .screen-md({
+    .col:nth-child(2),
+    .col:nth-child(3) {
+      margin-top: @storyMargin;
+    }
+  });
+  .screen-lg({
+    .col:nth-child(2) {
+      margin-top: @storyMargin;
+    }
+  });
+}
+
+.story {
+  display: block;
+  margin-bottom: @storyMargin;
+  position: relative;
+  //text-align: justify;
+  transition: all 0.25s ease-in-out;
+
+  .headline {
+    display: block;
+  }
+
+  // TODO fix this hover bumping up and down consequent content
+  &:hover, &:focus {
+    background: @light;
+    margin: -1rem -1rem 3rem;
+    padding: 1rem;
+
+    & > * {
+      display: block;
+    }
+  }
+}
