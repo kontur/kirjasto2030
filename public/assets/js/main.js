@@ -1,4 +1,4 @@
-/*! kirjasto2030 - v0.0.0 - 2015-04-29
+/*! kirjasto2030 - v0.0.0 - 2015-04-30
 * Copyright (c) 2015 ;*/
 // using sammy framework for simple routing, nothing much more at the moment 
 var app = $.sammy(function () {
@@ -124,4 +124,26 @@ $(function () {
   function closeNav() {
     $nav.removeClass("open");
   }
+});
+
+$(function () {
+
+  $(document).on("scroll", function () {
+    var scrollPercent = ($("body").scrollTop()) / ($("main").height()- $("body").height());
+
+    console.log(scrollPercent);
+
+    $("#intro").css('margin-left', scrollPercent * -100  + "%");
+    $("#timeline").css('margin-left', scrollPercent * -75  + "%");
+    $("#timeline-line").css('margin-left', (1 - scrollPercent) * 20 + "%");
+
+    if (scrollPercent > 0.5) {
+      $(".timeline-event").addClass("visible");
+    } else {
+      $(".timeline-event").removeClass("visible");
+    }
+
+
+  });
+
 });

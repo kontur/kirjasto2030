@@ -1384,6 +1384,7 @@ main {
     top: auto;
     height: auto;
     width: auto;
+    position: fixed;
     right: 1rem;
     top: 1rem;
     -webkit-transition: all 0.25s ease-out;
@@ -1405,7 +1406,16 @@ main {
   }
 }
 .page-intro {
+  height: 400%;
+  width: 100%;
+  overflow: hidden;
+}
+.page-intro #intro {
   height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .page-intro h2,
 .page-intro .h2,
@@ -1464,6 +1474,129 @@ main {
   .page-intro footer:nth-of-type(4n + 4) {
     border-right: 0;
   }
+}
+#timeline {
+  position: fixed;
+  left: 75%;
+  height: 100%;
+  top: 0;
+  width: 100%;
+}
+#timeline #timeline-line {
+  background: #464a53;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  margin-top: -1rem;
+  width: 100%;
+  left: 1rem;
+  margin-left: 20%;
+}
+#timeline #timeline-line .tick {
+  background: #464a53;
+  position: absolute;
+  width: 4px;
+  height: 1rem;
+  top: -0.5rem;
+}
+#timeline #timeline-line .tick:first-child {
+  left: 0;
+}
+#timeline #timeline-line .tick:nth-child(2) {
+  left: 25%;
+}
+#timeline #timeline-line .tick:nth-child(3) {
+  left: 50%;
+}
+#timeline #timeline-line .tick:nth-child(4) {
+  left: 75%;
+}
+#timeline #timeline-line .tick span {
+  color: #464a53;
+  font-weight: 700;
+  padding-bottom: 0;
+  line-height: 1.1em;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  display: block;
+  position: absolute;
+  left: -1rem;
+  text-align: center;
+  top: -1.5rem;
+  width: 2rem;
+}
+#timeline #timeline-line .tick span .underline {
+  background: #939599;
+  bottom: -4px;
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+#timeline #timeline-line .tick span .underline.underline-gradient {
+  background-color: #008bfd;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00f579), color-stop(100% #ffffff));
+  background-image: -webkit-linear-gradient(top, #00f579 0%, #ffffff 100%);
+  background-image: -moz-linear-gradient(top, #00f579 0%, #ffffff 100%);
+  background-image: -ms-linear-gradient(top, #00f579 0%, #ffffff 100%);
+  background-image: -o-linear-gradient(top, #00f579 0%, #ffffff 100%);
+  background-image: linear-gradient(top, #00f579 0%, #ffffff 100%);
+  background: #008bfd;
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #008bfd), color-stop(100%, #00a1ff));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* IE10+ */
+  background: linear-gradient(45deg, #008bfd 0%, #00f579);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@from', endColorstr='@to', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+#timeline #timeline-line .tick span .underline.underline-solid {
+  background: #464a53;
+}
+#timeline #timeline-line .tick span a {
+  color: inherit;
+}
+#timeline #timeline-events {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+}
+#timeline #timeline-events .timeline-event {
+  opacity: 0;
+  margin-left: 50px;
+  position: absolute;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+#timeline #timeline-events .timeline-event.event-2017 {
+  left: 10%;
+  transition: all 0.5s ease-in-out 0.1s;
+}
+#timeline #timeline-events .timeline-event.event-2022 {
+  left: 45%;
+  transition: all 0.5s ease-in-out 0.25s;
+}
+#timeline #timeline-events .timeline-event.event-2027 {
+  left: 75%;
+  transition: all 0.5s ease-in-out 0.5s;
+}
+#timeline #timeline-events .timeline-event.event-row-1 {
+  top: 0;
+}
+#timeline #timeline-events .timeline-event.visible {
+  opacity: 1;
+  margin-left: 0;
 }
 @media (min-width: 30em) {
   .stories .col:nth-child(2),
