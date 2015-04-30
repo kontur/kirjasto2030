@@ -11,8 +11,11 @@ var app = $.sammy(function () {
     pageClass = "page-";
 
 
+  $("body").removeClass("loading");
+
+
   var routesConfig = {
-    "intro": [[false], ['#/teknologia', 'Teknologia']],
+    "intro": [false, ['#/teknologia', 'Teknologia']],
     "teknologia": [["#/intro", "Intro"], ["#/laki", "Laki"]],
     "teknologia-tarinat": [["#/teknologia", "Teknologia"], ["#/laki", "Laki"]]
   };
@@ -24,16 +27,35 @@ var app = $.sammy(function () {
   // unified ajax call to fetch the content
   var loadContent = function (page, callback) {
     console.log("loadContent", page, typeof callback === "function");
-    $("main")
-      .addClass("transition")
-      .load(partialsDir + page + ".html", function () {
-        $("main")
-          .removeAttr("class")
-          .addClass(pageClass + page);
-        if (typeof callback === "function") {
-          callback();
-        }
+    var transitionStart = new Date().getTime();
+    $("body").addClass("loading");
+    $("main").addClass("transition");
+
+    // the "transition" animation takes 200ms to fade out, then 200ms to fade in
+    // make sure we wait those 200ms, then animate, and take at least 200 ms to animate smoothly,
+    // even if the animation goes faster
+    setTimeout(function () {
+      $("main").load(partialsDir + page + ".html", function () {
+
+        // if the loading did by itself take longer than 200ms, transition "right away"
+        var delay = (new Date().getTime() - transitionStart) - 200;
+        delay = delay > 200 ? 0 : delay;
+
+        setTimeout(function () {
+          $("body").removeClass("loading");
+
+          // add a "page-xxx" class to <main> for page specific css references
+          $("main").removeAttr("class").addClass(pageClass + page);
+          if (typeof callback === "function") {
+            callback();
+          }
+        }, delay);
       });
+
+    }, 200);
+
+    // programmatically scroll to top
+    $(document).scrollTop(0);
   };
 
   var loadStory = function (story) {
@@ -43,9 +65,33 @@ var app = $.sammy(function () {
     });
   };
 
+  /**
+   *
+   * @param prev array with href and label text OR false to hide button
+   * @param next array with href and label text OR false to hide button
+   *
+   */
   var setButtons = function (prev, next) {
-    $(".button-left-bottom").attr('href', prev[0]).find("span").html(prev[1]);
-    $(".button-right-bottom").attr('href', next[0]).find("span").html(next[1]);
+    console.log(prev, next);
+    try {
+      if (prev === false) {
+        throw new Error("No button location and label provided, hide button");
+      }
+      $(".button-left-bottom").attr('href', prev[0]).fadeIn()
+        .find("span").html(prev[1]);
+    } catch (e) {
+      $(".button-left-bottom").fadeOut();
+    }
+
+    try {
+      if (next === false) {
+        throw new Error("No button location and label provided, hide button");
+      }
+      $(".button-right-bottom").attr('href', next[0]).fadeIn()
+        .find("span").html(next[1]);
+    } catch (e) {
+      $(".button-right-bottom").fadeOut();
+    }
   };
 
   var defaultAction = function () {
@@ -77,27 +123,27 @@ var app = $.sammy(function () {
   this.get("#/:page", defaultAction);
 
   this.get("#/:page/:story", defaultAction);
-/*
-  this.get("#/teknologia", function () {
-    loadContent("teknologia");
-    setButtons(["#/intro", "Intro"], ["#/laki", "Laki"]);
-  });
-  this.get("#/teknologia/:story", function () {
-    var story = this.params['story'];
-    loadContent("teknologia-tarinat", function () {
-      loadStory(story);
-    });
-    setButtons(["#/teknologia", "Teknologia"], ["#/laki", "Laki"]);
-  });
+  /*
+   this.get("#/teknologia", function () {
+   loadContent("teknologia");
+   setButtons(["#/intro", "Intro"], ["#/laki", "Laki"]);
+   });
+   this.get("#/teknologia/:story", function () {
+   var story = this.params['story'];
+   loadContent("teknologia-tarinat", function () {
+   loadStory(story);
+   });
+   setButtons(["#/teknologia", "Teknologia"], ["#/laki", "Laki"]);
+   });
 
-  this.get("#/laki", function () {
-    loadContent("laki");
-  });
-  this.get("#/jakamistalous", function () {
-    loadContent("jakamistalous");
-  });
+   this.get("#/laki", function () {
+   loadContent("laki");
+   });
+   this.get("#/jakamistalous", function () {
+   loadContent("jakamistalous");
+   });
 
- */
+   */
   this.get("#/liitteet", function () {
     loadContent("liitteet");
     setButtons(["#/teknologia", "Teknologia"], ["#/laki", "Laki"]);

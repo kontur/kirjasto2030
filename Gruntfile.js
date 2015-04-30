@@ -1,4 +1,5 @@
 /*global module:false*/
+
 module.exports = function (grunt) {
 
   var filesToCheckForTodos = [
@@ -83,6 +84,26 @@ module.exports = function (grunt) {
         }
       }
     },
+    autoprefixer: {
+      options: {
+      },
+      main: {
+        options: {},
+        src: 'public/assets/css/main.css',
+        dest: 'public/assets/css/main.css'
+      }
+    },
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'public/assets/css',
+          src: ['*.css', '!*.min.css'],
+          dest: 'public/assets/css',
+          ext: '.min.css'
+        }]
+      }
+    },
     todo: {
       options: {
         file: "TODO.md",
@@ -103,7 +124,7 @@ module.exports = function (grunt) {
       },
       css: {
         files: 'src/less/*.less',
-        tasks: ['less']
+        tasks: ['less', 'autoprefixer', 'cssmin']
       },
       todo: {
         files: filesToCheckForTodos,
@@ -119,6 +140,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-todo');
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'concat', 'uglify']);

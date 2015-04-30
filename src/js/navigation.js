@@ -10,6 +10,7 @@ $(function () {
   $pages.on("click", "a", closeNav);
 
   function toggleNav() {
+
     $nav.toggleClass("open");
   }
 

@@ -12,6 +12,11 @@ body {
 // usees .page-xxx to differentiate content pages
 main {
   margin: 0;
+  transition: @pageTransition;
+
+  &.transition {
+    opacity: 0;
+  }
 }
 
 .col {

@@ -105,17 +105,46 @@
       opacity: 0;
       margin-left: 50px;
       position: absolute;
-      width: 100%;
+      width: auto;
+      display: inline-block;
       transition: @easing;
+
+      &:hover {
+        background: none;
+
+        .icon-dot {
+          animation: sizeBounce 1s infinite;
+        }
+      }
+
+      &.event-2015 {
+        left: 0;
+        transition: @easing;
+      }
 
       &.event-2017 {
         left: 10%;
         transition: @easing 0.1s;
       }
 
+      &.event-2019 {
+        left: 25%;
+        transition: @easing 0.2s;
+      }
+
+      &.event-2020 {
+        left: 35%;
+        transition: @easing 0.25s
+      }
+
       &.event-2022 {
         left: 45%;
-        transition: @easing 0.25s;
+        transition: @easing 0.3s;
+      }
+
+      &.event-2025 {
+        left: 65%;
+        transition: @easing 0.4s;
       }
 
       &.event-2027 {
@@ -123,9 +152,24 @@
         transition: @easing 0.5s;
       }
 
+      &.event-2030 {
+        left: 85%;
+        transition: @easing 0.75s;
+      }
+
+
       &.event-row-1 {
         top: 0;
       }
+
+      &.event-row-2 {
+        top: 2em;
+      }
+
+      &.event-row-3 {
+        top: 4em;
+      }
+
 
       &.visible {
         opacity: 1;

@@ -27,6 +27,15 @@
       height: @buttonSize;
     }
 
+    .button-left-bottom,
+    .button-right-bottom {
+      font-size: @fontXS;
+
+      .loading & {
+        opacity: 0;
+      }
+    }
+
     .button-left-bottom {
       position: absolute;
       left: 0;
@@ -44,6 +53,7 @@
       i {
         .transition(@hoverTransition);
         opacity: 1;
+        margin-top: 0;
         z-index: 10;
       }
 
