@@ -9,8 +9,7 @@ $(function () {
     // but only really do anything costly when we're on the intro page
     // TODO maybe this could be checked from the sammyjs instance straight instead of reading the DOM class here
 
-    // TODO mobile
-    if ($("main").hasClass("page-intro")) {
+    if ($("main").hasClass("page-intro") && $("body").width() > $("#30em").width()) {
       var scrollPercent = ($("body").scrollTop()) / ($("main").height() - $("body").height());
 
       $("#intro").css('margin-left', scrollPercent * -100 + "%");

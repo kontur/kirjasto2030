@@ -46,6 +46,8 @@ var app = $.sammy(function () {
 
           // add a "page-xxx" class to <main> for page specific css references
           $("main").removeAttr("class").addClass(pageClass + page);
+          $("#pages a.current").removeClass("current");
+          $("#pages a[href$='" + page + "'").addClass("current");
           if (typeof callback === "function") {
             callback();
           }

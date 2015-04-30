@@ -1,0 +1,183 @@
+
+.page-intro {
+
+  .screen-md({
+    height: 400%;
+    width: 100%;
+    overflow: hidden;
+
+    #intro {
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  });
+
+  h2, .h2, h3, .h3 {
+    display: block;
+  }
+  h2 {
+    margin-right: @gutter;
+  }
+
+  .screen-md({
+    .col {
+      height: 100%;
+      position: relative;
+    }
+
+    .hero {
+      .box-sizing(border-box);
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      padding-right: @gutter;
+    }
+
+    footer {
+      position: absolute;
+      bottom: @buttonMargin;
+      .make-col();
+    }
+  });
+}
+
+
+#timeline {
+  position: fixed;
+  left: 100%/4 * 3;
+  height: 100%;
+  top: 0;
+  width: 100%;
+
+  #timeline-line {
+    background: @textDark;
+    height: @underlineThickness;
+    position: absolute;
+    top: 50%;
+    margin-top: -1rem;
+    width: 100%;
+    left: @gutter;
+
+    margin-left: 20%;
+
+    .tick {
+      background: @textDark;
+      position: absolute;
+      width: @underlineThickness;
+      height: 1rem;
+      top: -0.5rem;
+
+      &:first-child {
+        left: 0;
+      }
+      &:nth-child(2) {
+        left: 25%;
+      }
+      &:nth-child(3) {
+        left: 50%;
+      }
+      &:nth-child(4) {
+        left: 75%;
+      }
+
+      span {
+        .h2();
+
+        display: block;
+        position: absolute;
+        left: -1rem;
+        text-align: center;
+        top: -1.5rem;
+        width: 2rem;
+      }
+    }
+  }
+
+  #timeline-events {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+
+    .timeline-event {
+      @easing: all 0.5s ease-in-out;
+
+      opacity: 0;
+      margin-left: 50px;
+      position: absolute;
+      width: auto;
+      display: inline-block;
+      transition: @easing;
+
+      &:hover {
+        background: none;
+
+        .icon-dot {
+          animation: sizeBounce 1s infinite;
+        }
+      }
+
+      &.event-2015 {
+        left: 0;
+        transition: @easing;
+      }
+
+      &.event-2017 {
+        left: 10%;
+        transition: @easing 0.1s;
+      }
+
+      &.event-2019 {
+        left: 25%;
+        transition: @easing 0.2s;
+      }
+
+      &.event-2020 {
+        left: 35%;
+        transition: @easing 0.25s
+      }
+
+      &.event-2022 {
+        left: 45%;
+        transition: @easing 0.3s;
+      }
+
+      &.event-2025 {
+        left: 65%;
+        transition: @easing 0.4s;
+      }
+
+      &.event-2027 {
+        left: 75%;
+        transition: @easing 0.5s;
+      }
+
+      &.event-2030 {
+        left: 85%;
+        transition: @easing 0.75s;
+      }
+
+
+      &.event-row-1 {
+        top: 0;
+      }
+
+      &.event-row-2 {
+        top: 2em;
+      }
+
+      &.event-row-3 {
+        top: 4em;
+      }
+
+
+      &.visible {
+        opacity: 1;
+        margin-left: 0;
+      }
+    }
+  }
+}

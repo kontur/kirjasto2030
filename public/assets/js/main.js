@@ -43,6 +43,8 @@ var app = $.sammy(function () {
 
           // add a "page-xxx" class to <main> for page specific css references
           $("main").removeAttr("class").addClass(pageClass + page);
+          $("#pages a.current").removeClass("current");
+          $("#pages a[href$='" + page + "'").addClass("current");
           if (typeof callback === "function") {
             callback();
           }
@@ -162,9 +164,9 @@ $(function () {
 
   $button.on("click", toggleNav);
   $pages.on("click", "a", closeNav);
+  $(".button-left-bottom, .button-right-bottom").on("click", closeNav);
 
   function toggleNav() {
-
     $nav.toggleClass("open");
   }
 
@@ -180,8 +182,7 @@ $(function () {
     // but only really do anything costly when we're on the intro page
     // TODO maybe this could be checked from the sammyjs instance straight instead of reading the DOM class here
 
-    // TODO mobile
-    if ($("main").hasClass("page-intro")) {
+    if ($("main").hasClass("page-intro") && $("body").width() > $("#30em").width()) {
       var scrollPercent = ($("body").scrollTop()) / ($("main").height() - $("body").height());
 
       $("#intro").css('margin-left', scrollPercent * -100 + "%");

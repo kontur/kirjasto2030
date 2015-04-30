@@ -24,6 +24,11 @@
     right: @buttonMargin;
   }
 
+  .button-left-bottom,
+  .button-right-bottom {
+    font-size: @fontXS;
+  }
+
   .button-menu {
     .resetBox();
     position: fixed;
@@ -37,10 +42,10 @@
       left: 0.5em;
       position: absolute;
       top: 0.5em;
+      width: auto;
     }
   }
 }
-
 
 &.open .button-menu {
   right: @navWidth + @buttonMargin * 2 !important;

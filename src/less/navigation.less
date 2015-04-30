@@ -17,7 +17,7 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    height: 2em;
+    height: 3em;
     width: 100%;
     z-index: 100;
 
@@ -27,10 +27,10 @@
       height: @buttonSize;
     }
 
+
     .button-left-bottom,
     .button-right-bottom {
-      font-size: @fontXS;
-
+      text-align: center;
       .loading & {
         opacity: 0;
       }
@@ -47,18 +47,20 @@
       left: 33.33%;
       bottom: 0;
       span {
-        display: none;
+        display: none !important;
       }
 
       i {
-        .transition(@hoverTransition);
-        opacity: 1;
+        transition: @hoverTransition;
+        display: block;
         margin-top: 0;
+        width: 100%;
+        top: 0;
         z-index: 10;
       }
 
       i.glyphicon-remove {
-        opacity: 0;
+        display: none;
         z-index: 5;
       }
     }
@@ -71,34 +73,49 @@
   }
 
   &.open .button-menu {
+    background: @light;
     i.glyphicon-menu-hamburger {
-      opacity: 0;
+      display: none;
       z-index: 5;
     }
     i.glyphicon-remove {
-      opacity: 1;
+      display: block;
       z-index: 10;
     }
   }
 
-  // the list holding the actual pages in the navigtation
+  // the list holding the actual pages in the navigation
   #pages {
+    box-sizing: border-box;
     background: @grid;
     display: block;
     list-style-type: none;
     height: 100%;
-    padding: 0;
+    padding: 2em 0.5em;
     position: fixed;
     margin: 0;
     right: 0;
     width: @navWidth;
     z-index: 10;
-    .transform(translateX(100%));
-    .transition(@navTransition);
+    transform: translateX(100%);
+    transition: @navTransition;
+
+    a {
+      .h2();
+
+      &:hover,
+      &:focus {
+        color: @blue;
+      }
+
+      &.current {
+        color: @blue;
+      }
+    }
   }
 
   &.open #pages {
-    .transform(translateX(0));
+    transform: translateX(0);
   }
 
   // responsive upgrades for larger than mobile screens:

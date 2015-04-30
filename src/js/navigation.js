@@ -8,9 +8,9 @@ $(function () {
 
   $button.on("click", toggleNav);
   $pages.on("click", "a", closeNav);
+  $(".button-left-bottom, .button-right-bottom").on("click", closeNav);
 
   function toggleNav() {
-
     $nav.toggleClass("open");
   }
 
