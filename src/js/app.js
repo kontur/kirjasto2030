@@ -19,7 +19,10 @@ var app = $.sammy(function () {
     "teknologia": [["#/intro", "Intro"], ["#/laki", "Laki"]],
     "teknologia-tarinat": [["#/teknologia", "Teknologia"], ["#/laki", "Laki"]],
     "laki": [["#/teknologia", "Teknologia"], ["#/yhteiskunta", "Yhteiskunta"]],
-    "laki-tarinat": [["#/teknologia", "Teknologia"], ["#/yhteiskunta", "Yhteiskunta"]]
+    "laki-tarinat": [["#/laki", "Laki"], ["#/yhteiskunta", "Yhteiskunta"]],
+    "yhteiskunta": [["#/laki", "Laki"]],
+    "yhteiskunta-tarinat": [["#/yhteiskunta", "Yhteiskunta"]]
+
   };
 
 
