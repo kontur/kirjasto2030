@@ -7,10 +7,13 @@ var app = $.sammy(function () {
     storiesDir = "stories/",
     pageClass = "page-";
 
-
+  // js is loaded and executes, stop animating
   $("body").removeClass("loading");
 
 
+  // configuration of routes, index means a route exists, the array of arrays defines the two linear bottom buttons'
+  // href and label
+  // NOTE routes that are not as indexes in this object will redirect to index
   var routesConfig = {
     "intro": [false, ['#/teknologia', 'Teknologia']],
     "teknologia": [["#/intro", "Intro"], ["#/laki", "Laki"]],
@@ -26,7 +29,10 @@ var app = $.sammy(function () {
   // helpers
   //========
 
-  // unified ajax call to fetch the content
+  /**
+   * unified ajax call to fetch the content
+   * @param page is the file in the "partials" directory - .html extension
+   */
   var loadContent = function (page, callback) {
     console.log("loadContent", page, typeof callback === "function");
     var transitionStart = new Date().getTime();
@@ -59,15 +65,23 @@ var app = $.sammy(function () {
     }, 200);
 
     // programmatically scroll to top
-    $(document).scrollTop(0);
+    $("body").animate({
+      "scrollTop": 0
+    }, 500);
   };
 
+
+  /**
+   * loads a story from the "stories" directory, where @param is the name of the file - .html extension
+   * @param story
+   */
   var loadStory = function (story) {
     console.log("loadStory?", story);
     $("main nav").find("a[href$='" + story + "']").addClass("active");
     $("#story").load(storiesDir + story + ".html", function () {
     });
   };
+
 
   /**
    *
@@ -76,7 +90,6 @@ var app = $.sammy(function () {
    *
    */
   var setButtons = function (prev, next) {
-    console.log(prev, next);
     try {
       if (prev === false) {
         throw new Error("No button location and label provided, hide button");
@@ -139,6 +152,12 @@ var app = $.sammy(function () {
 
 $(function () {
   app.run();
+
+  $("body").on("click", ".button-left-bottom, .button-right-bottom", function () {
+    $("body").animate({
+      "scrollTop": 0
+    }, 500);
+  });
 });
 $(function () {
   var $nav = $("#page-navigation"),
@@ -175,12 +194,41 @@ $(function () {
       $("#timeline-line").css('margin-left', (1 - scrollPercent) * 20 + "%");
 
       if (scrollPercent > 0.5) {
+        $("#timeline").removeClass("collapsed");
         $(".timeline-event").addClass("visible");
+        setLeftButton("#/intro", "Intro");
       } else {
+        $("#timeline").addClass("collapsed");
         $(".timeline-event").removeClass("visible");
+        setLeftButton(false);
       }
     }
 
   });
+
+  $("main").on("click", "#timeline", function () {
+    console.log(parseInt($("#timeline").css("margin-left")));
+    if (parseInt($("#timeline").css("margin-left")) < 50) {
+      $("body").animate({
+        "scrollTop": $(document).height()
+      }, 1500, function () {
+        setLeftButton("#/intro", "Intro");
+        $("#timeline").removeClass("collapsed");
+      });
+    }
+  });
+
+
+  function setLeftButton(href, label) {
+    try {
+      if (href === false || label === "undefined") {
+        throw new Error("Hide button");
+      }
+      $(".button-left-bottom").attr('href', href).fadeIn()
+        .find("span").html(label);
+    } catch (e) {
+      $(".button-left-bottom").fadeOut();
+    }
+  }
 
 });

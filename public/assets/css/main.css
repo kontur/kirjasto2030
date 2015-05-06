@@ -1672,6 +1672,9 @@ main.transition {
     top: 0;
     width: 100%;
   }
+  #timeline.collapsed {
+    cursor: pointer;
+  }
   #timeline #timeline-line {
     background: #464a53;
     height: 4px;

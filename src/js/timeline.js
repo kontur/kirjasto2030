@@ -19,12 +19,41 @@ $(function () {
       $("#timeline-line").css('margin-left', (1 - scrollPercent) * 20 + "%");
 
       if (scrollPercent > 0.5) {
+        $("#timeline").removeClass("collapsed");
         $(".timeline-event").addClass("visible");
+        setLeftButton("#/intro", "Intro");
       } else {
+        $("#timeline").addClass("collapsed");
         $(".timeline-event").removeClass("visible");
+        setLeftButton(false);
       }
     }
 
   });
+
+  $("main").on("click", "#timeline", function () {
+    console.log(parseInt($("#timeline").css("margin-left")));
+    if (parseInt($("#timeline").css("margin-left")) < 50) {
+      $("body").animate({
+        "scrollTop": $(document).height()
+      }, 1500, function () {
+        setLeftButton("#/intro", "Intro");
+        $("#timeline").removeClass("collapsed");
+      });
+    }
+  });
+
+
+  function setLeftButton(href, label) {
+    try {
+      if (href === false || label === "undefined") {
+        throw new Error("Hide button");
+      }
+      $(".button-left-bottom").attr('href', href).fadeIn()
+        .find("span").html(label);
+    } catch (e) {
+      $(".button-left-bottom").fadeOut();
+    }
+  }
 
 });
