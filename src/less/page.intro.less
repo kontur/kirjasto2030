@@ -27,6 +27,16 @@
       position: absolute;
       bottom: @buttonMargin;
       .make-col();
+
+      .headline > a {
+        display: block;
+        color: inherit;
+        padding: 0 0;
+
+        &:first-of-type {
+          margin-top: 0.5em;
+        }
+      }
     }
   });
 }

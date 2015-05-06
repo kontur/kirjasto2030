@@ -1632,6 +1632,14 @@ main.transition {
     border-right: 1px solid #e1e1e1;
     padding: 1rem;
   }
+  .page-intro footer .headline > a {
+    display: block;
+    color: inherit;
+    padding: 0 0;
+  }
+  .page-intro footer .headline > a:first-of-type {
+    margin-top: 0.5em;
+  }
 }
 @media (min-width: 30em) and (min-width: 30em) {
   .page-intro footer {
