@@ -79,6 +79,10 @@ h2, .h2 {
   });
 }
 
+h3, .h3 {
+  font-size: @fontM;
+}
+
 // class for a div wrapping a h1 with span.underline inside
 // this will make the h1 inline-block, so the div needs to break the flow
 .headline {
@@ -151,9 +155,31 @@ a {
   max-width: 50em;
 }
 
+blockquote, q {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  padding: 0;
+  margin: 0;
+
+  &::before, &::after {
+    content: "";
+    display: none;
+  }
+}
 
 blockquote {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  white-space: pre-line;
+}
+
+q {
+  margin: 0.5em 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid @grid;
+  height: 0;
+  width: 100%;
+  margin: 2rem auto;
 }
 
 .icon-dot {

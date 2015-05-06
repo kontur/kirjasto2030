@@ -17,6 +17,12 @@
   }
 }
 
+.screen-lt-lg(@declarations) {
+  @media (max-width: @screen-md-max) {
+    @declarations();
+  }
+}
+
 
 // helper to null the dimensions and position of a layoutbox
 .resetBox() {

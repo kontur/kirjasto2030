@@ -14,7 +14,9 @@ var app = $.sammy(function () {
   var routesConfig = {
     "intro": [false, ['#/teknologia', 'Teknologia']],
     "teknologia": [["#/intro", "Intro"], ["#/laki", "Laki"]],
-    "teknologia-tarinat": [["#/teknologia", "Teknologia"], ["#/laki", "Laki"]]
+    "teknologia-tarinat": [["#/teknologia", "Teknologia"], ["#/laki", "Laki"]],
+    "laki": [["#/teknologia", "Teknologia"], ["#/yhteiskunta", "Yhteiskunta"]],
+    "laki-tarinat": [["#/teknologia", "Teknologia"], ["#/yhteiskunta", "Yhteiskunta"]]
   };
 
 
@@ -120,29 +122,7 @@ var app = $.sammy(function () {
 
   //this.get("#/:page", function () { defaultAction.call(this); });
   this.get("#/:page", defaultAction);
-
   this.get("#/:page/:story", defaultAction);
-  /*
-   this.get("#/teknologia", function () {
-   loadContent("teknologia");
-   setButtons(["#/intro", "Intro"], ["#/laki", "Laki"]);
-   });
-   this.get("#/teknologia/:story", function () {
-   var story = this.params['story'];
-   loadContent("teknologia-tarinat", function () {
-   loadStory(story);
-   });
-   setButtons(["#/teknologia", "Teknologia"], ["#/laki", "Laki"]);
-   });
-
-   this.get("#/laki", function () {
-   loadContent("laki");
-   });
-   this.get("#/jakamistalous", function () {
-   loadContent("jakamistalous");
-   });
-
-   */
   this.get("#/liitteet", function () {
     loadContent("liitteet");
     setButtons(["#/teknologia", "Teknologia"], ["#/laki", "Laki"]);

@@ -4,14 +4,36 @@ nav.stories {
   ul {
     list-style: none;
     padding: 0;
+
+    li {
+      margin: 0 0 1em;
+
+      a {
+        padding: 0;
+      }
+    }
+  }
+
+
+  .underline-gradient {
+    display: none !important;
   }
 
   .active {
-    background: @light;
+    //background: @light;
+    .underline-gradient {
+      display: block !important;
+    }
+
   }
 
   .ingress {
     color: @textDark;
     display: block;
   }
+}
+
+#story {
+  padding-top: 0;
+  padding-bottom: 10em;
 }

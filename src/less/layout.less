@@ -21,6 +21,10 @@ main {
 
 .col {
   .make-col();
+
+  &.col-clear {
+    clear: both;
+  }
 }
 
 .col.col-wide {
@@ -51,7 +55,7 @@ main {
   }
 
   &:nth-of-type(3n + 3) {
-    border-right: 0;
+    //border-right: 0;
   }
   });
 
@@ -62,7 +66,7 @@ main {
     border-right: @border;
   }
   &:nth-of-type(4n + 4) {
-    border-right: 0;
+    //border-right: 0;
   }
   });
 }

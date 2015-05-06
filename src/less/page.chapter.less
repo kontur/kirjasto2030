@@ -4,17 +4,27 @@
 
 
 .stories {
-  .screen-md({
-    .col:nth-child(2),
-    .col:nth-child(3) {
-      margin-top: @storyMargin;
+
+  .screen-lt-lg({
+    .col {
+      clear: both;
+      width: 100%;
+      min-height: 0 !important;
+      .story {
+        margin-bottom: 1em;
+      }
     }
   });
+
   .screen-lg({
-    .col:nth-child(2) {
-      margin-top: @storyMargin;
+    .col:nth-child(2), .col:nth-child(3) {
+      padding-top: @storyMargin;
     }
   });
+
+  .col {
+    min-height: 35em;
+  }
 }
 
 .story {
@@ -28,10 +38,15 @@
     display: block;
   }
 
+  > span {
+    margin: 0.5em 0;
+    display: block;
+  }
+
   // TODO fix this hover bumping up and down consequent content
   &:hover, &:focus {
     background: @light;
-    margin: -1rem -1rem 3rem;
+    margin: -1rem -1rem (@storyMargin - 1rem);
     padding: 1rem;
 
     & > * {
