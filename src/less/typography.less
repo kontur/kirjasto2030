@@ -15,6 +15,7 @@
 @fontS: 0.8rem;
 @fontM: 1rem;
 @fontL: 1.25rem;
+@fontLXL: 1.75em;
 @fontXL: 2.25rem;
 
 
@@ -60,11 +61,22 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 h1, .h1 {
-  font-size: @fontXL;
+  font-size: @fontL;
+
+  .screen-md({
+    font-size: @fontLXL;
+  });
+
+  .screen-lg({
+    font-size: @fontXL;
+  });
 }
 
 h2, .h2 {
-  font-size: @fontL;
+  font-size: @fontM;
+  .screen-lg({
+    font-size: @fontL;
+  });
 }
 
 // class for a div wrapping a h1 with span.underline inside

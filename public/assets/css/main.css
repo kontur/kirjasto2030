@@ -1163,11 +1163,29 @@ h6 a,
 }
 h1,
 .h1 {
-  font-size: 2.25rem;
+  font-size: 1.25rem;
+}
+@media (min-width: 30em) {
+  h1,
+  .h1 {
+    font-size: 1.75em;
+  }
+}
+@media (min-width: 50em) {
+  h1,
+  .h1 {
+    font-size: 2.25rem;
+  }
 }
 h2,
 .h2 {
-  font-size: 1.25rem;
+  font-size: 1rem;
+}
+@media (min-width: 50em) {
+  h2,
+  .h2 {
+    font-size: 1.25rem;
+  }
 }
 .headline {
   padding: 0;
@@ -1332,14 +1350,14 @@ main.transition {
     width: 50%;
   }
 }
-#30em,
-#50em {
+#width-30em,
+#width-50em {
   display: none;
 }
-#30em {
+#width-30em {
   width: 30em;
 }
-#50em {
+#width-50em {
   width: 50em;
 }
 /**
@@ -1443,7 +1461,7 @@ main.transition {
   line-height: 1.1em;
   position: relative;
   text-transform: uppercase;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 #page-navigation #pages a .underline {
   background: #939599;
@@ -1478,6 +1496,11 @@ main.transition {
 }
 #page-navigation #pages a a {
   color: inherit;
+}
+@media (min-width: 50em) {
+  #page-navigation #pages a {
+    font-size: 1.25rem;
+  }
 }
 #page-navigation #pages a:hover,
 #page-navigation #pages a:focus {
@@ -1560,6 +1583,7 @@ main.transition {
 .page-intro h3,
 .page-intro .h3 {
   display: block;
+  white-space: nowrap;
 }
 .page-intro h2 {
   margin-right: 1rem;
@@ -1623,6 +1647,7 @@ main.transition {
     margin-right: 1rem;
   }
   #timeline {
+    display: block;
     position: fixed;
     left: 75%;
     height: 100%;
@@ -1665,7 +1690,7 @@ main.transition {
     line-height: 1.1em;
     position: relative;
     text-transform: uppercase;
-    font-size: 1.25rem;
+    font-size: 1rem;
     display: block;
     position: absolute;
     left: -1rem;
@@ -1807,7 +1832,7 @@ main.transition {
     position: absolute;
     top: 40%;
     width: 100%;
-    padding-right: 1rem;
+    padding-right: 2rem;
   }
   .page-intro footer {
     position: absolute;
@@ -1840,6 +1865,11 @@ main.transition {
   }
   .page-intro footer:nth-of-type(4n + 4) {
     border-right: 0;
+  }
+}
+@media (min-width: 30em) and (min-width: 50em) {
+  #timeline #timeline-line .tick span {
+    font-size: 1.25rem;
   }
 }
 @media (min-width: 30em) {
