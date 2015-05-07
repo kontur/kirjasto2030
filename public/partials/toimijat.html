@@ -14,7 +14,22 @@
 
     function drawNodes() {
         var width = 960,
-            height = 500;
+                height = 500;
+
+        /*
+        0 = valtio
+        1 = laki
+        3 = teknologia
+        4 = markinnat
+        5 = ihmiset?
+         */
+        var colors = [
+            "#548ed3", // blue
+            "#e95b4d", // red
+            "#69b340", // green
+            "#990033",
+            "#ee9911"
+        ];
 
         var svg = d3.select("main").append("svg")
                 .attr("width", width)
@@ -22,8 +37,8 @@
 
         var force = d3.layout.force()
                 .gravity(.05)
-                .distance(100)
-                .charge(-100)
+                .distance(150)
+                .charge(-250)
                 .size([width, height]);
 
         d3.json("data/actors.json", function(error, json) {
@@ -52,9 +67,11 @@
                     .text(function(d) { return d.name });
 
             node.append("circle")
-                    .attr("r", 5)
+                    .attr("r", function (d) {
+                        return parseInt(3 + d.value);
+                    })
                     .style("fill", function (d) {
-                        return "#4400ff";
+                        return colors[d.group - 1];
                     });
 
 
