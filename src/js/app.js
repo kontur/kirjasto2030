@@ -122,6 +122,8 @@ var app = $.sammy(function () {
     console.log(page, story);
 
     if (routesConfig.hasOwnProperty(page)) {
+      console.log("scripts?", routesConfig[page][2]);
+
       if (story !== "undefined") {
         loadContent(page, function () {
           console.log("hello callback");

@@ -1,4 +1,4 @@
-/*! kirjasto2030 - v0.0.0 - 2015-05-06
+/*! kirjasto2030 - v0.0.0 - 2015-05-07
 * Copyright (c) 2015 ;*/
 // using sammy framework for simple routing, nothing much more at the moment 
 var app = $.sammy(function () {
@@ -119,6 +119,8 @@ var app = $.sammy(function () {
     console.log(page, story);
 
     if (routesConfig.hasOwnProperty(page)) {
+      console.log("scripts?", routesConfig[page][2]);
+
       if (story !== "undefined") {
         loadContent(page, function () {
           console.log("hello callback");

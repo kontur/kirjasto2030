@@ -20,6 +20,7 @@
     "normalize-less": "*",
     "sammy": "~0.7.6",
     "foundation-icons": "*",
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "d3": "~3.5.5"
   }
 }

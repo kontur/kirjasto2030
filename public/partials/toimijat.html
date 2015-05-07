@@ -1,1 +1,82 @@
 <h1>Toimijat</h1>
+
+
+<script>
+    $(function () {
+        console.log(typeof d3);
+        if (typeof d3 === "undefined") {
+            $.getScript("assets/js/d3.min.js", function () {
+                console.log("hello d3", typeof d3);
+                drawNodes();
+            });
+        }
+    });
+
+    function drawNodes() {
+        var width = 960,
+            height = 500;
+
+        var svg = d3.select("main").append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+        var force = d3.layout.force()
+                .gravity(.05)
+                .distance(100)
+                .charge(-100)
+                .size([width, height]);
+
+        d3.json("data/actors.json", function(error, json) {
+            force
+                    .nodes(json.nodes)
+                    .links(json.links)
+                    .start();
+
+            var link = svg.selectAll(".link")
+                    .data(json.links)
+                    .enter().append("line")
+                    .attr("class", "link")
+                    .style("stroke-width", function (d) {
+                        return Math.sqrt(d.value);
+                    });
+
+            var node = svg.selectAll(".node")
+                    .data(json.nodes)
+                    .enter().append("g")
+                    .attr("class", "node")
+                    .call(force.drag);
+
+            node.append("text")
+                    .attr("dx", 12)
+                    .attr("dy", ".35em")
+                    .text(function(d) { return d.name });
+
+            node.append("circle")
+                    .attr("r", 5)
+                    .style("fill", function (d) {
+                        return "#4400ff";
+                    });
+
+
+            force.on("tick", function() {
+                link.attr("x1", function(d) { return d.source.x; })
+                        .attr("y1", function(d) { return d.source.y; })
+                        .attr("x2", function(d) { return d.target.x; })
+                        .attr("y2", function(d) { return d.target.y; });
+
+                node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+            });
+        });
+    }
+</script>
+
+<style type="text/css">
+    .link {
+        stroke: #999;
+    }
+
+    .node text {
+        pointer-events: none;
+        font: 10px sans-serif;
+    }
+</style>
