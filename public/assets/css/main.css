@@ -1640,6 +1640,10 @@ main.transition {
   .page-intro footer .headline > a:first-of-type {
     margin-top: 0.5em;
   }
+  .page-intro footer .headline > a:hover {
+    background: transparent;
+    color: #548ed3;
+  }
 }
 @media (min-width: 30em) and (min-width: 30em) {
   .page-intro footer {
