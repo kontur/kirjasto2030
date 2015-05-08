@@ -31,7 +31,6 @@
   display: block;
   margin-bottom: @storyMargin;
   position: relative;
-  //text-align: justify;
   transition: all 0.25s ease-in-out;
 
   .headline {
@@ -43,14 +42,33 @@
     display: block;
   }
 
-  // TODO fix this hover bumping up and down consequent content
-  &:hover, &:focus {
-    background: @light;
-    margin: -1rem -1rem (@storyMargin - 1rem);
-    padding: 1rem;
+  .illustration {
+    background: @background;
+    transition: all 0.25s ease-in;
+    margin: 1em 0;
 
-    & > * {
-      display: block;
-    }
+    .screen-lt-lg({
+      max-width: 10em;
+      float: right;
+      margin-top: -3em;
+    });
   }
+
+  .screen-lg({
+    &:hover, &:focus {
+      background: @light;
+      margin: -1rem -1rem (@storyMargin - 1rem);
+      padding: 1rem;
+
+      & > * {
+        display: block;
+      }
+
+      .illustration-background {
+        background: @background;
+        border-radius: 0.5em;
+        transform: scale(1.05);
+      }
+    }
+  });
 }

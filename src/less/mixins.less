@@ -11,6 +11,12 @@
   }
 }
 
+.screen-lt-md(@declarations) {
+  @media (max-width: @screen-sm-max) {
+    @declarations();
+  }
+}
+
 .screen-lg(@declarations) {
   @media (min-width: @screen-md-max) {
     @declarations();
