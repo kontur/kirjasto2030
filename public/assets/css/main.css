@@ -1915,6 +1915,11 @@ main.transition {
     padding-top: 10rem;
   }
 }
+@media (max-width: 30em) {
+  .stories {
+    padding-bottom: 5em;
+  }
+}
 .stories .col {
   min-height: 35em;
 }
@@ -1944,7 +1949,7 @@ main.transition {
   .story .illustration {
     max-width: 10em;
     float: right;
-    margin-top: -3em;
+    margin-top: -1em;
   }
 }
 @media (min-width: 50em) {
@@ -1965,6 +1970,11 @@ main.transition {
     -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
             transform: scale(1.05);
+  }
+}
+@media (max-width: 30em) {
+  nav.stories {
+    display: none;
   }
 }
 nav.stories ul {
@@ -2002,6 +2012,14 @@ nav.stories .ingress {
   padding: 1em 0;
   top: 0em;
 }
+@media (max-width: 30em) {
+  #story .illustration {
+    float: none;
+    width: auto;
+    margin-right: auto;
+    top: auto;
+  }
+}
 #story .infobox {
   font-family: monospace;
   background: #eeeeee;
@@ -2012,6 +2030,16 @@ nav.stories .ingress {
   padding: 1em 2em 2em;
   top: 0em;
   white-space: pre;
+}
+@media (max-width: 30em) {
+  #story .infobox {
+    float: none;
+    width: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    top: auto;
+  }
 }
 .page-toimijat #ant-intro {
   position: absolute;

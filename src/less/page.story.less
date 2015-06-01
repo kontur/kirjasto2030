@@ -1,6 +1,10 @@
 
 nav.stories {
 
+  .screen-lt-md({
+    display: none;
+  });
+
   ul {
     list-style: none;
     padding: 0;
@@ -48,6 +52,13 @@ nav.stories {
     background: #cecfd2;
     padding: 1em 0;
     top: 0em;
+
+    .screen-lt-md({
+      float: none;
+      width: auto;
+      margin-right: auto;
+      top: auto;
+    });
   }
 
   .infobox {
@@ -60,5 +71,15 @@ nav.stories {
     padding: 1em 2em 2em;
     top: 0em;
     white-space: pre;
+
+    .screen-lt-md({
+      float: none;
+      width: auto;
+      margin-right: auto;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      top: auto;
+    });
+
   }
 }
