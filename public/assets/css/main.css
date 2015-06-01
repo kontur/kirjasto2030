@@ -2002,6 +2002,17 @@ nav.stories .ingress {
   padding: 1em 0;
   top: 0em;
 }
+#story .infobox {
+  font-family: monospace;
+  background: #eeeeee;
+  width: 25em;
+  margin-right: -10em;
+  position: relative;
+  float: right;
+  padding: 1em 2em 2em;
+  top: 0em;
+  white-space: pre;
+}
 .page-toimijat #ant-intro {
   position: absolute;
   left: 0;
