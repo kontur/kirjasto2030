@@ -19,15 +19,14 @@
 
 
 <script>
-    $(function () {
-        console.log(typeof d3);
-        if (typeof d3 === "undefined") {
-            $.getScript("assets/js/d3.min.js", function () {
-                console.log("hello d3", typeof d3);
-                drawNodes();
-            });
-        }
-    });
+$(function () {
+    console.log(typeof d3);
+    if (typeof d3 === "undefined") {
+        $.getScript("assets/js/d3.min.js", function () {
+            console.log("hello d3", typeof d3);
+            drawNodes();
+        });
+    }
 
     $("body").on("click", ".button-show-ant", function () {
         $("#ant-intro").addClass("collapsed");
@@ -38,34 +37,35 @@
         $("#ant-intro").removeClass("collapsed");
         $("#ant").css("opacity", 0.25);
     });
+});
 
-    function drawNodes() {
-        var width = $("main").width(),
+function drawNodes() {
+    var width = $("main").width(),
             height = $("body").height();
 
-        console.log(width, height);
-        /*
-         0 = valtio
-         1 = laki
-         3 = teknologia
-         4 = markinnat
-         5 = yhteiskunta?
-         */
+    console.log(width, height);
+    /*
+     0 = valtio
+     1 = laki
+     3 = teknologia
+     4 = markinnat
+     5 = yhteiskunta?
+     */
 
-        var colors = [
-            "#548ed3", // blue
-            "#e95b4d", // red
-            "#00f579", // green
-            "#003399",
-            "#ee9911"
-        ];
+    var colors = [
+        "#548ed3", // blue
+        "#e95b4d", // red
+        "#00f579", // green
+        "#003399",
+        "#ee9911"
+    ];
 
-        var svg = d3.select("main").append("svg")
+    var svg = d3.select("main").append("svg")
             .attr("width", width)
             .attr("height", height)
             .attr("id", "ant");
 
-        var force = d3.layout.force()
+    var force = d3.layout.force()
             .gravity(.1)
             .distance(function (node) {
                 var maxDistance = width / 4 * 3;
@@ -79,13 +79,13 @@
             .friction(0.75)
             .size([width, height]);
 
-        d3.json("data/actors.json", function (error, json) {
-            force
+    d3.json("data/actors.json", function (error, json) {
+        force
                 .nodes(json.nodes)
                 .links(json.links)
                 .start();
 
-            var link = svg.selectAll(".link")
+        var link = svg.selectAll(".link")
                 .data(json.links)
                 .enter().append("line")
                 .attr("class", "link")
@@ -93,20 +93,20 @@
                     return Math.sqrt(d.value) / 2;
                 });
 
-            var node = svg.selectAll(".node")
+        var node = svg.selectAll(".node")
                 .data(json.nodes)
                 .enter().append("g")
                 .attr("class", "node")
                 .call(force.drag);
 
-            node.append("text")
+        node.append("text")
                 .attr("dx", "15px")
                 .attr("dy", "10px")
                 .text(function (d) {
                     return d.name
                 });
 
-            node.append("circle")
+        node.append("circle")
                 .attr("r", function (d) {
                     return parseInt(3 + d.value);
                 })
@@ -115,10 +115,10 @@
                 });
 
 
-            force.on("tick", function () {
-                link.attr("x1", function (d) {
-                    return d.source.x;
-                })
+        force.on("tick", function () {
+            link.attr("x1", function (d) {
+                return d.source.x;
+            })
                     .attr("y1", function (d) {
                         return d.source.y;
                     })
@@ -129,12 +129,12 @@
                         return d.target.y;
                     });
 
-                node.attr("transform", function (d) {
-                    return "translate(" + d.x + "," + d.y + ")";
-                });
+            node.attr("transform", function (d) {
+                return "translate(" + d.x + "," + d.y + ")";
             });
         });
-    }
+    });
+}
 </script>
 
 <style type="text/css">

@@ -1,0 +1,41 @@
+{
+  "name": "Teknologia",
+  "children": [
+    {
+      "name": "Infrastruktuuri",
+      "children": [
+        {
+          "name": "Verkkoyhteydet"
+        },
+        {
+          "name": "Langaton laajakaista"
+        }
+      ]
+    },
+    {
+      "name": "Tietojenkäsitelytiedetta",
+      "children": [
+        {
+          "name": "Artificial Intelligence"
+        },
+        {
+          "name": "Machine Learning"
+        }
+      ]
+    },
+    {
+      "name": "Digitaalinen lukeminen",
+      "children": [
+        {
+          "name": "E-paperi"
+        },
+        {
+          "name": "E-kirja"
+        },
+        {
+          "name": "Read on demand"
+        }
+      ]
+    }
+  ]
+}

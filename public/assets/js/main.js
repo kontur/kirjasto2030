@@ -1,4 +1,4 @@
-/*! kirjasto2030 - v0.0.0 - 2015-05-07
+/*! kirjasto2030 - v0.0.0 - 2015-06-02
 * Copyright (c) 2015 ;*/
 // using sammy framework for simple routing, nothing much more at the moment 
 var app = $.sammy(function () {
@@ -189,9 +189,6 @@ $(function () {
 
     if ($("main").hasClass("page-intro") && $("body").width() > $("#width-30em").width()) {
       var scrollPercent = ($("body").scrollTop()) / ($("main").height() - $("body").height());
-
-      console.log(scrollPercent);
-
       $("#intro").css('margin-left', scrollPercent * -100 + "%");
       $("#timeline").css('margin-left', scrollPercent * -75 + "%");
       $("#timeline-line").css('margin-left', (1 - scrollPercent) * 20 + "%");
@@ -210,7 +207,6 @@ $(function () {
   });
 
   $("main").on("click", "#timeline", function () {
-    console.log(parseInt($("#timeline").css("margin-left")));
     if (parseInt($("#timeline").css("margin-left")) < 50) {
       $("body").animate({
         "scrollTop": $(document).height()
