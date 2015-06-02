@@ -1972,6 +1972,71 @@ main.transition {
             transform: scale(1.05);
   }
 }
+/**
+ * Styling for the various node tree illustrations
+ */
+#tree-illustration {
+  height: 600px;
+}
+#tree-illustration svg {
+  margin: auto;
+  display: inline-block;
+}
+#tree-illustration .node {
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+  pointer-events: none;
+  font-family: "ff-tisa-sans-web-pro", Lucida, sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  fill: #828489;
+  text-shadow: -2px 2px 0 #e1e1e1;
+}
+#tree-illustration .node:hover,
+#tree-illustration .node:focus {
+  fill: #464a53;
+}
+#tree-illustration .node:hover circle,
+#tree-illustration .node:focus circle {
+  stroke: #828489;
+  -webkit-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+          transform: scale(1.25);
+}
+#tree-illustration .node circle {
+  fill: #eeeeee;
+  stroke-width: 1.5px;
+  stroke: #ccc;
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+#tree-illustration .node.depth-0 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#tree-illustration .node.depth-0 circle {
+  stroke: #008bfd;
+}
+#tree-illustration .node.depth-1 {
+  text-transform: uppercase;
+}
+#tree-illustration .node.depth-1 circle {
+  stroke: #00f579;
+}
+#tree-illustration .node.depth-2 {
+  font-size: 0.7rem;
+}
+#tree-illustration .link {
+  fill: none;
+  stroke: #e1e1e1;
+  stroke-width: 1px;
+}
+#tree-illustration .link.depth-0 {
+  stroke: #008bfd;
+}
+#tree-illustration .link.depth-1 {
+  stroke: #00f579;
+}
 @media (max-width: 30em) {
   nav.stories {
     display: none;

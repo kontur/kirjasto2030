@@ -202,3 +202,13 @@ hr {
     background: @green;
   }
 }
+
+
+// common style mixing for svg node text
+.nodeText() {
+  pointer-events: none;
+  .fontSans();
+  font-size: @fontS;
+  fill: @textLight;
+  text-shadow: -2px 2px 0 @grid;
+}

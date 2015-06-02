@@ -9,6 +9,9 @@
         },
         {
           "name": "Langaton laajakaista"
+        },
+        {
+          "name": "Pilvipalvelut"
         }
       ]
     },
@@ -16,10 +19,13 @@
       "name": "Tietojenkäsitelytiedetta",
       "children": [
         {
-          "name": "Artificial Intelligence"
+          "name": "Artificial intelligence"
         },
         {
-          "name": "Machine Learning"
+          "name": "Machine learning"
+        },
+        {
+          "name": "Language processing"
         }
       ]
     },

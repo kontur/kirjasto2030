@@ -68,9 +68,12 @@ module.exports = function (grunt) {
       main: {
         options: {
           latedef: false,
+          unused: false,
           globals: {
             $: true,
-            console: true
+            console: true,
+            d3: true,
+            self: true
           }
         },
         src: 'src/js/*.js'

@@ -78,3 +78,80 @@
     }
   });
 }
+
+
+/**
+ * Styling for the various node tree illustrations
+ */
+
+#tree-illustration {
+  height: 600px;
+
+  svg {
+    margin: auto;
+    display: inline-block;
+  }
+
+
+  .node {
+    transition: @hoverTransition;
+    .nodeText();
+
+    &:hover,
+    &:focus {
+      fill: @textDark;
+
+      circle {
+        stroke: @textLight;
+        transform: scale(1.25);
+      }
+    }
+
+    circle {
+      fill: @gray-lighter;
+      stroke-width: 1.5px;
+      stroke: #ccc;
+      transition: @hoverTransition;
+    }
+
+    &.depth-0 {
+      //fill: @textDark;
+      font-weight: bold;
+      text-transform: uppercase;
+      circle {
+        stroke: @gradientBlue;
+      }
+    }
+
+    &.depth-1 {
+      //fill: @gray-light;
+      text-transform: uppercase;
+      circle {
+        stroke: @gradientCyan;
+      }
+    }
+
+    &.depth-2 {
+      font-size: @fontXS;
+    }
+
+  }
+
+
+
+  .link {
+    fill: none;
+    stroke: @grid;
+    stroke-width: 1px;
+
+    &.depth-0 {
+      stroke: @gradientBlue;
+    }
+
+    &.depth-1 {
+      stroke: @gradientCyan;
+    }
+  }
+
+
+}

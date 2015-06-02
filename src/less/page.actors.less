@@ -40,7 +40,7 @@
     opacity: 0.25;
 
     .link {
-      stroke: #d7d9da; // slightly lighter than background
+      stroke: @nodeLink;
     }
 
     .node {
@@ -60,11 +60,7 @@
     }
 
     .node text {
-      pointer-events: none;
-      .fontSans();
-      font-size: @fontS;
-      fill: @textLight;
-      text-shadow: -2px 2px 0 @grid;
+      .nodeText();
     }
 
     &.active {
