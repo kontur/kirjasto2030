@@ -381,7 +381,7 @@ $(function () {
       var scrollPercent = ($("body").scrollTop()) / ($("main").height() - $("body").height());
       $("#intro").css('margin-left', scrollPercent * -100 + "%");
       $("#timeline").css('margin-left', scrollPercent * -75 + "%");
-      $("#timeline-line").css('margin-left', (1 - scrollPercent) * 20 + "%");
+      $("#timeline-line").css('margin-left', (1 - scrollPercent) * 5 + "%");
 
       if (scrollPercent > 0.5) {
         $("#timeline").removeClass("collapsed");
