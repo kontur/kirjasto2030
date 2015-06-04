@@ -4,7 +4,7 @@
         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis
             lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
-        <div>Placeholder illustration</div>
+        <div id="tree-illustration"></div>
     </div>
 
     <div class="col">
@@ -44,3 +44,9 @@
         </div>
     </div>
 </article>
+
+<script>
+    $(function () {
+        displayGraph(drawTree, "/data/laki.json", "#tree-illustration");
+    });
+</script>

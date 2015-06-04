@@ -1602,29 +1602,29 @@ main.transition {
     right: 22rem !important;
   }
 }
-.page-intro h2,
-.page-intro .h2,
-.page-intro h3,
-.page-intro .h3 {
+.page-etusivu h2,
+.page-etusivu .h2,
+.page-etusivu h3,
+.page-etusivu .h3 {
   display: block;
   white-space: nowrap;
 }
-.page-intro h2 {
+.page-etusivu h2 {
   margin-right: 1rem;
 }
 @media (min-width: 30em) {
-  .page-intro .col {
+  .page-etusivu .col {
     height: 100%;
     position: relative;
   }
-  .page-intro .hero {
+  .page-etusivu .hero {
     box-sizing: border-box;
     position: absolute;
     top: 40%;
     width: 100%;
     padding-right: 1rem;
   }
-  .page-intro footer {
+  .page-etusivu footer {
     position: absolute;
     bottom: 1rem;
     box-sizing: border-box;
@@ -1632,34 +1632,34 @@ main.transition {
     border-right: 1px solid #e1e1e1;
     padding: 1rem;
   }
-  .page-intro footer .headline > a {
+  .page-etusivu footer .headline > a {
     display: block;
     color: inherit;
     padding: 0 0;
   }
-  .page-intro footer .headline > a:first-of-type {
+  .page-etusivu footer .headline > a:first-of-type {
     margin-top: 0.5em;
   }
-  .page-intro footer .headline > a:hover {
+  .page-etusivu footer .headline > a:hover {
     background: transparent;
     color: #548ed3;
   }
 }
 @media (min-width: 30em) and (min-width: 30em) {
-  .page-intro footer {
+  .page-etusivu footer {
     border-left: 0;
     float: left;
     width: 33.33333333%;
   }
-  .page-intro footer:first-child {
+  .page-etusivu footer:first-child {
     border-left: 1px solid #e1e1e1;
   }
 }
 @media (min-width: 30em) and (min-width: 50em) {
-  .page-intro footer {
+  .page-etusivu footer {
     width: 25%;
   }
-  .page-intro footer:nth-of-type(3n + 3) {
+  .page-etusivu footer:nth-of-type(3n + 3) {
     border-right: 1px solid #e1e1e1;
   }
 }
@@ -1667,13 +1667,13 @@ main.transition {
   display: none;
 }
 @media (min-width: 30em) {
-  .page-intro h2,
-  .page-intro .h2,
-  .page-intro h3,
-  .page-intro .h3 {
+  .page-etusivu h2,
+  .page-etusivu .h2,
+  .page-etusivu h3,
+  .page-etusivu .h3 {
     display: block;
   }
-  .page-intro h2 {
+  .page-etusivu h2 {
     margin-right: 1rem;
   }
   #timeline {
@@ -1842,12 +1842,12 @@ main.transition {
   }
 }
 @media (min-width: 30em) and (min-width: 30em) {
-  .page-intro {
+  .page-etusivu {
     height: 400%;
     width: 100%;
     overflow: hidden;
   }
-  .page-intro #intro {
+  .page-etusivu #intro {
     height: 100%;
     position: fixed;
     top: 0;
@@ -1856,18 +1856,18 @@ main.transition {
   }
 }
 @media (min-width: 30em) and (min-width: 30em) {
-  .page-intro .col {
+  .page-etusivu .col {
     height: 100%;
     position: relative;
   }
-  .page-intro .hero {
+  .page-etusivu .hero {
     box-sizing: border-box;
     position: absolute;
     top: 40%;
     width: 100%;
     padding-right: 2rem;
   }
-  .page-intro footer {
+  .page-etusivu footer {
     position: absolute;
     bottom: 1rem;
     box-sizing: border-box;
@@ -1877,20 +1877,20 @@ main.transition {
   }
 }
 @media (min-width: 30em) and (min-width: 30em) and (min-width: 30em) {
-  .page-intro footer {
+  .page-etusivu footer {
     border-left: 0;
     float: left;
     width: 33.33333333%;
   }
-  .page-intro footer:first-child {
+  .page-etusivu footer:first-child {
     border-left: 1px solid #e1e1e1;
   }
 }
 @media (min-width: 30em) and (min-width: 30em) and (min-width: 50em) {
-  .page-intro footer {
+  .page-etusivu footer {
     width: 25%;
   }
-  .page-intro footer:nth-of-type(3n + 3) {
+  .page-etusivu footer:nth-of-type(3n + 3) {
     border-right: 1px solid #e1e1e1;
   }
 }

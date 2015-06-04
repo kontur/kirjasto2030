@@ -18,15 +18,15 @@ var app = $.sammy(function () {
   // href and label
   // NOTE routes that are not as indexes in this object will redirect to index
   var routesConfig = {
-    "intro": [false, ['#/teknologia', 'Teknologia']],
-    "teknologia": [["#/intro", "Intro"], ["#/laki", "Laki"]],
-    "teknologia-tarinat": [["#/teknologia", "Teknologia"], ["#/laki", "Laki"]],
-    "laki": [["#/teknologia", "Teknologia"], ["#/yhteiskunta", "Yhteiskunta"]],
-    "laki-tarinat": [["#/laki", "Laki"], ["#/yhteiskunta", "Yhteiskunta"]],
-    "yhteiskunta": [["#/laki", "Laki"]],
-    "yhteiskunta-tarinat": [["#/yhteiskunta", "Yhteiskunta"]],
-    "raportti": [["#/intro", "Intro"], false],
-    "toimijat": [["#/intro", "Intro"], false]
+    "etusivu": [false, ['#/teknologia', 'Teknologia']],
+    "teknologia": [["#/etusivu", "Edellinen"], ["#/laki", "Laki"]],
+    "teknologia-tarinat": [["#/teknologia", "Edellinen"], ["#/laki", "Laki"]],
+    "laki": [["#/teknologia", "Edellinen"], ["#/yhteiskunta", "Yhteiskunta"]],
+    "laki-tarinat": [["#/laki", "Edellinen"], ["#/yhteiskunta", "Yhteiskunta"]],
+    "yhteiskunta": [["#/laki", "Edellinen"]],
+    "yhteiskunta-tarinat": [["#/yhteiskunta", "Edellinen"]],
+    "raportti": [["#/etusivu", "Edellinen"], false],
+    "toimijat": [["#/etusivu", "Edellinen"], false]
   };
 
 
@@ -134,7 +134,7 @@ var app = $.sammy(function () {
       }
       setButtons(routesConfig[page][0], routesConfig[page][1]);
     } else {
-      this.redirect("#/intro");
+      this.redirect("#/etusivu");
     }
   };
 
@@ -151,7 +151,7 @@ var app = $.sammy(function () {
   });
   // redirect landing page to intro
   this.get("", function () {
-    this.redirect("#/intro");
+    this.redirect("#/etusivu");
   });
 
 });
