@@ -1943,9 +1943,10 @@ main.transition {
 .story .headline {
   display: block;
 }
-.story > span {
-  margin: 0.5em 0;
+.story a > span {
+  color: #828489;
   display: block;
+  margin: 0.5em 0;
 }
 .story .illustration {
   background: #cecfd2;
