@@ -18,7 +18,7 @@ $(function () {
       if (scrollPercent > 0.5) {
         $("#timeline").removeClass("collapsed");
         $(".timeline-event").addClass("visible");
-        setLeftButton("#/intro", "Intro");
+        setLeftButton("#/etusivu", "Etusivu");
       } else {
         $("#timeline").addClass("collapsed");
         $(".timeline-event").removeClass("visible");
@@ -33,7 +33,7 @@ $(function () {
       $("body").animate({
         "scrollTop": $(document).height()
       }, 1500, function () {
-        setLeftButton("#/intro", "Intro");
+        setLeftButton("#/etusivu", "Etusivu");
         $("#timeline").removeClass("collapsed");
       });
     }

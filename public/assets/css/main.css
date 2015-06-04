@@ -1533,6 +1533,16 @@ main.transition {
 #page-navigation #pages a.current {
   color: #548ed3;
 }
+#page-navigation #pages li:first-child {
+  margin-bottom: 1em;
+}
+#page-navigation #pages .minor-first {
+  margin-top: 1em;
+}
+#page-navigation #pages .minor a {
+  text-transform: capitalize;
+  font-size: 1rem;
+}
 #page-navigation.open #pages {
   -webkit-transform: translateX(0);
       -ms-transform: translateX(0);
