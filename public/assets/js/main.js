@@ -23,7 +23,7 @@ var app = $.sammy(function () {
     "yhteiskunta": [["#/laki", "Edellinen"]],
     "yhteiskunta-tarinat": [["#/yhteiskunta", "Edellinen"]],
     "raportti": [["#/etusivu", "Edellinen"], false],
-    "toimijat": [["#/etusivu", "Edellinen"], false]
+    "toimijaverkosto": [["#/etusivu", "Edellinen"], false]
   };
 
 
