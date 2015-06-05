@@ -150,5 +150,7 @@ module.exports = function (grunt) {
   // Default task.
   grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
   grunt.registerTask('libs', ['concat:libs', 'uglify:libs']);
+  grunt.registerTask('css', ['less', 'autoprefixer', 'cssmin']);
+  grunt.registerTask('todo', ['todo']);
 
 };
