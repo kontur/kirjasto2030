@@ -5,15 +5,21 @@ nav.stories {
     display: none;
   });
 
+  h2 {
+    display: block;
+    padding: 0.5em 1rem;
+  }
+
   ul {
     list-style: none;
     padding: 0;
 
     li {
-      margin: 0 0 1em;
 
       a {
+        display: block;
         padding: 0;
+        margin: 0 -1rem;
       }
     }
   }
@@ -23,11 +29,12 @@ nav.stories {
     display: none !important;
   }
 
-  .active {
+  .active h2 {
     //background: @light;
-    .underline-gradient {
-      display: block !important;
-    }
+    //.underline-gradient {
+    //  display: block !important;
+    //}
+    color: @gradientBlue !important;
 
   }
 
