@@ -1628,6 +1628,23 @@ main.transition {
 .page-etusivu h2 {
   margin-right: 1rem;
 }
+.page-etusivu footer .headline > a {
+  display: block;
+  color: inherit;
+  padding: 0 0;
+}
+.page-etusivu footer .headline > a:first-of-type {
+  margin-top: 0.5em;
+}
+.page-etusivu footer .headline > a:hover {
+  background: transparent;
+  color: #548ed3;
+}
+@media (max-width: 30em) {
+  .page-etusivu footer {
+    padding: 1rem 1rem 5rem;
+  }
+}
 @media (min-width: 30em) {
   .page-etusivu .col {
     height: 100%;
@@ -1647,18 +1664,6 @@ main.transition {
     border-left: 1px solid #e1e1e1;
     border-right: 1px solid #e1e1e1;
     padding: 1rem;
-  }
-  .page-etusivu footer .headline > a {
-    display: block;
-    color: inherit;
-    padding: 0 0;
-  }
-  .page-etusivu footer .headline > a:first-of-type {
-    margin-top: 0.5em;
-  }
-  .page-etusivu footer .headline > a:hover {
-    background: transparent;
-    color: #548ed3;
   }
 }
 @media (min-width: 30em) and (min-width: 30em) {
@@ -1941,9 +1946,19 @@ main.transition {
     border-right: 1px solid #e1e1e1;
   }
 }
+@media (min-width: 30em) and (max-width: 50em) {
+  #timeline.collapsed {
+    left: 100%;
+  }
+}
 @media (min-width: 30em) and (min-width: 50em) {
   #timeline #timeline-line .tick span {
     font-size: 1.25rem;
+  }
+}
+@media (min-width: 30em) and (max-width: 50em) {
+  #timeline #timeline-events .timeline-event {
+    font-size: 0.7rem;
   }
 }
 @media (max-width: 50em) {

@@ -9,6 +9,30 @@
     margin-right: @gutter;
   }
 
+
+  footer {
+
+    .headline > a {
+      display: block;
+      color: inherit;
+      padding: 0 0;
+
+      &:first-of-type {
+        margin-top: 0.5em;
+      }
+
+      &:hover {
+        background: transparent;
+        color: @blue;
+      }
+    }
+
+    .screen-lt-md({
+      padding: @gutter @gutter 5rem;
+    });
+  }
+
+
   .screen-md({
     .col {
       height: 100%;
@@ -27,27 +51,11 @@
       position: absolute;
       bottom: @buttonMargin;
       .make-col();
-
-      .headline > a {
-        display: block;
-        color: inherit;
-        padding: 0 0;
-
-        &:first-of-type {
-          margin-top: 0.5em;
-        }
-
-        &:hover {
-          background: transparent;
-          color: @blue;
-        }
-      }
     }
   });
 }
 
 
-// TODO timeline more into view in default homepage view
 #timeline {
   display: none;
 }

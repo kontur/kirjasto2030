@@ -53,8 +53,18 @@
   top: 0;
   width: 100%;
 
+
+
+
+
   &.collapsed {
     cursor: pointer;
+
+    // on medium screens offset the timeline more when it's collapsed so it doesn't
+    // peek in the screen
+    .screen-lt-lg({
+      left: 100%;
+    });
   }
 
   #timeline-line {
@@ -117,6 +127,10 @@
       display: inline-block;
       transition: @easing;
       line-height: 1em;
+
+      .screen-lt-lg({
+        font-size: @fontXS;
+      });
 
       &:hover {
         background: none;
