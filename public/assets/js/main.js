@@ -1,4 +1,4 @@
-/*! kirjasto2030 - v0.0.0 - 2015-06-04
+/*! kirjasto2030 - v0.0.0 - 2015-06-05
 * Copyright (c) 2015 ;*/
 // using sammy framework for simple routing, nothing much more at the moment 
 var app = $.sammy(function () {
@@ -214,7 +214,7 @@ function drawTree(options) {
 
   var svg = d3.select(selector).append("svg")
     .attr("width", diameter)
-    .attr("height", diameter)
+    .attr("height", diameter + diameter/3)
     .append("g")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
