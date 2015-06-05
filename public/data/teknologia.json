@@ -4,43 +4,29 @@
     {
       "name": "Infrastruktuuri",
       "children": [
-        {
-          "name": "Verkkoyhteydet"
-        },
-        {
-          "name": "Langaton laajakaista"
-        },
-        {
-          "name": "Pilvipalvelut"
-        }
+        {"name": "Verkkoyhteydet"},
+        {"name": "Langaton laajakaista"},
+        {"name": "Pilvipalvelut"},
+        {"name": "Internet of things"}
       ]
     },
     {
-      "name": "Tietojenkäsitelytiedetta",
+      "name": "Tietojenkäsitely",
       "children": [
-        {
-          "name": "Artificial intelligence"
-        },
-        {
-          "name": "Machine learning"
-        },
-        {
-          "name": "Language processing"
-        }
+        {"name": "Tekoäly"},
+        {"name": "Koneoppiminen"},
+        {"name": "Language processing"},
+        {"name": "Big data"}
       ]
     },
     {
-      "name": "Digitaalinen lukeminen",
+      "name": "Digitaalisaatio",
       "children": [
-        {
-          "name": "E-paperi"
-        },
-        {
-          "name": "E-kirja"
-        },
-        {
-          "name": "Read on demand"
-        }
+        {"name": "Jakeluformatit"},
+        {"name": "E-paperi"},
+        {"name": "E-kirja"},
+        {"name": "Read on demand"},
+        {"name": "Mediakulutus"}
       ]
     }
   ]

@@ -1,3 +1,36 @@
 {
-  "name": "Yhteiskunta"
+  "name": "Yhteiskunta",
+  "children": [
+    {
+      "name": "Liikuvuus",
+      "children": [
+        {"name": "Muutoliike"},
+        {"name": "Hajaasutus"},
+        {"name": "Työmatka"},
+        {"name": "Downsizing"},
+        {"name": "Työsuhdemuotoja",
+          "children": [
+            {"name": "Etätyö"},
+            {"name": "Itsensätyöllistäminen"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jakaminen",
+      "children": [
+        {"name": "Tee se itse"},
+        {"name": "Kierätäminen"},
+        {"name": "Omistajuus"}
+      ]
+    },
+    {
+      "name": "Vuorovaikutus",
+      "children": [
+        {"name": "Kansalaisaloitteet"},
+        {"name": "Lähidemokraatia"},
+        {"name": "Ikäntyminen"}
+      ]
+    }
+  ]
 }

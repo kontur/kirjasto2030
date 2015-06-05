@@ -45,20 +45,20 @@ function drawTree(options) {
     throw(new Error("drawTree(), no json provided"));
   }
 
-  var diameter = 400;
+  var diameter = 800;
 
   var tree = d3.layout.tree()
-    .size([360, diameter / 4 ])
+    .size([180, diameter / 4 ])
     .separation(function(a, b) { return (a.parent === b.parent ? 1 : 2) / a.depth; });
 
   var diagonal = d3.svg.diagonal.radial()
     .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
 
   var svg = d3.select(selector).append("svg")
-    .attr("width", diameter)
-    .attr("height", diameter + diameter/3)
+    .attr("width", diameter / 2)
+    .attr("height", diameter)
     .append("g")
-    .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+    .attr("transform", "translate(" + 50 + "," + diameter / 8 * 3 + ")");
 
 
   d3.json(json, function(error, root) {
@@ -80,11 +80,9 @@ function drawTree(options) {
 
 
     node.append("circle")
-      .attr("r", 4.5)
-      .attr("class", "foo");
+      .attr("r", 4.5);
 
     node.append("text")
-      .attr("dy", ".31em")
       .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
       .attr("transform", function(d) { return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)"; })
       .text(function(d) { return d.name; });

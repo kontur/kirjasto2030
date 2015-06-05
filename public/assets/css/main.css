@@ -1952,6 +1952,21 @@ main.transition {
     width: 100%;
   }
 }
+@media (min-width: 50em) {
+  .stories .col {
+    min-height: 40em;
+  }
+  .stories .col:nth-child(4),
+  .stories .col:nth-child(5) {
+    float: right;
+  }
+  .stories .col:nth-child(6) .story,
+  .stories .col:nth-child(7) .story,
+  .stories .col:nth-child(8) .story,
+  .stories .col:nth-child(9) .story {
+    margin-top: 0;
+  }
+}
 /**
 Structure:
 
@@ -2018,7 +2033,7 @@ div.col
 }
 @media (min-width: 50em) {
   .story {
-    min-height: 35em;
+    min-height: 300px;
     margin-top: 10rem;
   }
   .story a {
@@ -2053,11 +2068,11 @@ div.col
  * Styling for the various node tree illustrations
  */
 #tree-illustration {
-  height: 600px;
+  height: 700px;
 }
 #tree-illustration svg {
   margin: auto;
-  display: inline-block;
+  display: block;
 }
 #tree-illustration .node {
   -webkit-transition: all 0.2s ease-in-out;
@@ -2088,6 +2103,7 @@ div.col
           transition: all 0.2s ease-in-out;
 }
 #tree-illustration .node.depth-0 {
+  fill: #464a53;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -2102,6 +2118,10 @@ div.col
 }
 #tree-illustration .node.depth-2 {
   font-size: 0.7rem;
+}
+#tree-illustration .node.depth-3 {
+  font-size: 0.6rem;
+  fill: #a2a4a9;
 }
 #tree-illustration .link {
   fill: none;

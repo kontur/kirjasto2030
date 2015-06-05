@@ -1,3 +1,28 @@
 {
-  "name": "Laki"
+  "name": "Laki",
+  "children": [
+    {
+      "name": "Kansallinen",
+      "children": [
+        {"name": "Kirjastolaki"},
+        {"name": "Eduskunta"},
+        {"name": "Korkein oikeus"}
+      ]
+    },
+    {
+      "name": "Kansainvälinen",
+      "children": [
+        {"name": "EU"},
+        {"name": "Kauppasopimukset"}
+      ]
+    },
+    {
+      "name": "IPR",
+      "children": [
+        {"name": "Tekijänoikeus"},
+        {"name": "Streaming"},
+        {"name": "Royalties"}
+      ]
+    }
+  ]
 }
