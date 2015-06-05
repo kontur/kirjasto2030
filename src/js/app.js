@@ -38,7 +38,7 @@ var app = $.sammy(function () {
    * @param page is the file in the "partials" directory - .html extension
    */
   var loadContent = function (page, callback) {
-    console.log("loadContent", page, typeof callback === "function");
+    //console.log("loadContent", page, typeof callback === "function");
     var transitionStart = new Date().getTime();
     $("body").addClass("loading");
     $("main").addClass("transition");
@@ -63,6 +63,7 @@ var app = $.sammy(function () {
           if (typeof callback === "function") {
             callback();
           }
+          highlightReadStories();
         }, delay);
       });
 
@@ -80,10 +81,58 @@ var app = $.sammy(function () {
    * @param story
    */
   var loadStory = function (story) {
-    console.log("loadStory?", story);
+    //console.log("loadStory?", story);
     $("main nav").find("a[href$='" + story + "']").addClass("active");
     $("#story").load(storiesDir + story + ".html", function () {
+      markStoryRead(story);
+      highlightReadStories();
     });
+  };
+
+
+  /**
+   * helper to store in session which stories have been visited already
+   * @param story
+   */
+  var markStoryRead = function (story) {
+    var s = window.sessionStorage;
+    if (s) {
+      if (!s.getItem(story)) {
+          s.setItem(story, true);
+      }
+    }
+  };
+
+
+  /**
+   * helper to check if a story by string @story has been marked as read already
+   * @param story
+   * @returns {boolean}
+   */
+  var hasReadStory = function (story) {
+    var s = window.sessionStorage;
+    if (s) {
+      return s.getItem(story) ? true : false;
+    }
+    return false;
+  };
+
+
+
+  var highlightReadStories = function () {
+    var s = window.sessionStorage;
+    if (s) {
+      // TODO is could do with some optimizing
+      // looping through all sessionStorage items and blindly assuming them
+      // to be a link string for which to look (on any page) is not ideal
+      //
+      // maybe first: check against a know story names
+      // then: compile a jquery collection with only relevant looking links (i.e. has "#/xxx-tarinat" string)
+      // then: highlight
+      for (var i = 0; i < s.length; i++) {
+        $("a[href$='" + s.key(i) + "']").addClass("read");
+      }
+    }
   };
 
 
@@ -119,14 +168,13 @@ var app = $.sammy(function () {
     var page = this.params["page"];
     var story = this.params["story"];
 
-    console.log(page, story);
+    //console.log(page, story);
 
     if (routesConfig.hasOwnProperty(page)) {
-      console.log("scripts?", routesConfig[page][2]);
+      //console.log("scripts?", routesConfig[page][2]);
 
       if (story !== "undefined") {
         loadContent(page, function () {
-          console.log("hello callback");
           loadStory(story);
         });
       } else {

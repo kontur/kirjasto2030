@@ -1276,6 +1276,12 @@ a:hover,
 a:focus {
   background: #e1e1e1;
 }
+a.read {
+  color: #828489 !important;
+}
+a.read * {
+  color: #828489 !important;
+}
 .text {
   max-width: 50em;
 }

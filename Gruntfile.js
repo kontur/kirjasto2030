@@ -4,7 +4,11 @@ module.exports = function (grunt) {
 
   var filesToCheckForTodos = [
     'src/*',
-    'public/*.html'
+    'src/less/*',
+    'src/js/*',
+    'public/*.html',
+    'public/partials/*.html',
+    'public/stories/*.html'
   ];
 
   // Project configuration.
@@ -73,7 +77,8 @@ module.exports = function (grunt) {
             $: true,
             console: true,
             d3: true,
-            self: true
+            self: true,
+            window: true
           }
         },
         src: 'src/js/*.js'
