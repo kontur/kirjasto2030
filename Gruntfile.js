@@ -2,15 +2,6 @@
 
 module.exports = function (grunt) {
 
-  var filesToCheckForTodos = [
-    'src/*',
-    'src/less/*',
-    'src/js/*',
-    'public/*.html',
-    'public/partials/*.html',
-    'public/stories/*.html'
-  ];
-
   // Project configuration.
   grunt.initConfig({
     // Metadata.
@@ -112,15 +103,6 @@ module.exports = function (grunt) {
         }]
       }
     },
-    todo: {
-      options: {
-        file: "TODO.md",
-        githubBoxes: true,
-        colophon: true,
-        usePackage: true
-      },
-      src: filesToCheckForTodos
-    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -133,10 +115,6 @@ module.exports = function (grunt) {
       css: {
         files: 'src/less/*.less',
         tasks: ['less', 'autoprefixer', 'cssmin']
-      },
-      todo: {
-        files: filesToCheckForTodos,
-        tasks: ['todo']
       }
     }
   });
@@ -147,7 +125,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-todo');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
@@ -156,6 +133,5 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
   grunt.registerTask('libs', ['concat:libs', 'uglify:libs']);
   grunt.registerTask('css', ['less', 'autoprefixer', 'cssmin']);
-  grunt.registerTask('todo', ['todo']);
 
 };
