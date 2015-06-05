@@ -1944,40 +1944,50 @@ main.transition {
   .stories .col {
     clear: both;
     width: 100%;
-    min-height: 0 !important;
-  }
-  .stories .col .story {
-    margin-bottom: 1em;
   }
 }
-@media (min-width: 50em) {
-  .stories .col:nth-child(2),
-  .stories .col:nth-child(3) {
-    padding-top: 10rem;
-  }
-}
-@media (max-width: 30em) {
-  .stories {
-    padding-bottom: 5em;
-  }
-}
-.stories .col {
-  min-height: 35em;
-}
+/**
+Structure:
+
+div.col
+  div.story
+    a
+      div.headline
+      h2
+        span.underline.underline-gradient
+      span
+*/
 .story {
+  background: #cecfd2;
   display: block;
-  margin-bottom: 10rem;
   position: relative;
   -webkit-transition: all 0.25s ease-in-out;
           transition: all 0.25s ease-in-out;
+  height: 100%;
 }
-.story .headline {
+.story:hover a .headline,
+.story:focus a .headline,
+.story:hover a > span,
+.story:focus a > span {
+  background: #e1e1e1;
+}
+.story:hover .illustration-background,
+.story:focus .illustration-background {
+  background: #cecfd2;
+  border-radius: 0.5em;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+.story a {
   display: block;
 }
 .story a > span {
   color: #828489;
-  display: block;
-  margin: 0.5em 0;
+}
+.story a:hover,
+.story a:focus {
+  background: transparent !important;
 }
 .story .illustration {
   background: #cecfd2;
@@ -1985,6 +1995,7 @@ main.transition {
           transition: all 0.25s ease-in;
   margin: 1em auto;
   max-width: 15em;
+  max-height: 15em;
   display: block;
 }
 @media (max-width: 50em) {
@@ -1994,24 +2005,42 @@ main.transition {
     margin-top: -1em;
   }
 }
+@media (max-width: 50em) {
+  .story .illustration {
+    display: none;
+  }
+}
 @media (min-width: 50em) {
-  .story:hover,
-  .story:focus {
-    background: #e1e1e1;
-    margin: -1rem -1rem 9rem;
+  .story {
+    min-height: 35em;
+    margin-top: 10rem;
+  }
+  .story a {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+  .story a .headline,
+  .story a > span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    margin: -1rem;
     padding: 1rem;
   }
-  .story:hover > *,
-  .story:focus > * {
+  .story a .headline {
+    bottom: 80%;
+    width: 100%;
     display: block;
   }
-  .story:hover .illustration-background,
-  .story:focus .illustration-background {
-    background: #cecfd2;
-    border-radius: 0.5em;
-    -webkit-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-            transform: scale(1.05);
+  .story a .headline h2 {
+    display: block;
+  }
+  .story a > span {
+    top: 20%;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
   }
 }
 /**

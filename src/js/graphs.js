@@ -56,7 +56,7 @@ function drawTree(options) {
 
   var svg = d3.select(selector).append("svg")
     .attr("width", diameter)
-    .attr("height", diameter)
+    .attr("height", diameter + diameter/3)
     .append("g")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 

@@ -9,49 +9,80 @@
     .col {
       clear: both;
       width: 100%;
-      min-height: 0 !important;
-      .story {
-        margin-bottom: 1em;
-      }
     }
   });
 
   .screen-lg({
     .col:nth-child(2), .col:nth-child(3) {
-      padding-top: @storyMargin;
+      //padding-top: @storyMargin;
     }
   });
 
   .screen-lt-md({
-    padding-bottom: 5em;
+    //padding-bottom: 5em;
   });
 
-  .col {
-    min-height: 35em;
-  }
 }
 
+
+/**
+Structure:
+
+div.col
+  div.story
+    a
+      div.headline
+      h2
+        span.underline.underline-gradient
+      span
+*/
+
 .story {
+  background: @background;
   display: block;
-  margin-bottom: @storyMargin;
   position: relative;
   transition: all 0.25s ease-in-out;
+  height: 100%;
 
-  .headline {
-    display: block;
+
+
+  //border: 1px solid red;
+
+  &:hover, &:focus {
+
+    a {
+      .headline,
+      > span {
+        background: @light;
+      }
+    }
+
+    .illustration-background {
+      background: @background;
+      border-radius: 0.5em;
+      transform: scale(1.05);
+    }
   }
 
-  a > span {
-    color: @textLight;
+  a {
     display: block;
-    margin: 0.5em 0;
+    > span {
+      color: @textLight;
+    }
   }
+
+  a:hover,
+  a:focus {
+    background: transparent !important;
+  }
+
 
   .illustration {
     background: @background;
     transition: all 0.25s ease-in;
     margin: 1em auto;
     max-width: 15em;
+    max-height: 15em;
     display: block;
 
     .screen-lt-lg({
@@ -61,20 +92,48 @@
     });
   }
 
-  .screen-lg({
-    &:hover, &:focus {
-      background: @light;
-      margin: -1rem -1rem (@storyMargin - 1rem);
-      padding: 1rem;
+  .screen-lt-lg ({
+    .illustration {
+      display: none;
+    }
+  });
 
-      & > * {
+  .screen-lg({
+
+    min-height: 35em;
+    margin-top: @storyMargin;
+
+    @linePositionVertical: 20%;
+
+    a {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      padding: 0;
+
+      .headline,
+      > span {
         display: block;
+        position: absolute;
+        width: 100%;
+        margin: -@gutter;
+        padding: @gutter;
       }
 
-      .illustration-background {
-        background: @background;
-        border-radius: 0.5em;
-        transform: scale(1.05);
+      .headline {
+        bottom: 100% - @linePositionVertical;
+        width: 100%;
+        display: block;
+
+        h2 {
+          display: block;
+        }
+      }
+
+      > span {
+        top: @linePositionVertical;
+        padding-top: @gutter;
+        margin-top: @gutter/2;
       }
     }
   });
@@ -92,7 +151,6 @@
     margin: auto;
     display: inline-block;
   }
-
 
   .node {
     transition: @hoverTransition;
