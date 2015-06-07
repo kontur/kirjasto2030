@@ -1,6 +1,53 @@
 
 .page-etusivu {
 
+  .hero {
+    position: relative;
+
+    .headline {
+
+      a {
+        display: block;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+          background: transparent !important;
+
+          h2 {
+            span.underline {
+              background: @blue !important;
+            }
+          }
+          .section-icon {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .section-icon {
+        position: absolute;
+        top: -8em;
+        height: 8em;
+        width: 100%;
+        left: -1rem;
+        right: -1rem;
+        transform: scale(1);
+        transition: @hoverTransition;
+      }
+
+      p {
+        .fontSerif();
+        font-weight: normal;
+        font-size: @fontS;
+        display: block;
+        position: relative;
+        color: @textLight;
+        text-transform: none;
+      }
+    }
+  }
+
   h2, .h2, h3, .h3 {
     display: block;
     white-space: nowrap;

@@ -1,4 +1,4 @@
-/*! kirjasto2030 - v0.0.0 - 2015-06-05
+/*! kirjasto2030 - v0.0.0 - 2015-06-07
 * Copyright (c) 2015 ;*/
 // using sammy framework for simple routing, nothing much more at the moment 
 var app = $.sammy(function () {

@@ -1391,6 +1391,9 @@ main.transition {
   width: 50em;
 }
 /**
+ * Declarations that are not layout or typography specific but still reusable throughout the site
+ */
+/**
  * All the main navigation components:
  * prev / next buttons, slide-out navigation
  */
@@ -1617,6 +1620,49 @@ main.transition {
   #page-navigation.open .button-menu {
     right: 22rem !important;
   }
+}
+.page-etusivu .hero {
+  position: relative;
+}
+.page-etusivu .hero .headline a {
+  display: block;
+  width: 100%;
+}
+.page-etusivu .hero .headline a:hover,
+.page-etusivu .hero .headline a:focus {
+  background: transparent !important;
+}
+.page-etusivu .hero .headline a:hover h2 span.underline,
+.page-etusivu .hero .headline a:focus h2 span.underline {
+  background: #548ed3 !important;
+}
+.page-etusivu .hero .headline a:hover .section-icon,
+.page-etusivu .hero .headline a:focus .section-icon {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+.page-etusivu .hero .headline .section-icon {
+  position: absolute;
+  top: -8em;
+  height: 8em;
+  width: 100%;
+  left: -1rem;
+  right: -1rem;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+.page-etusivu .hero .headline p {
+  font-family: "ff-tisa-web-pro", "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-size: 0.8rem;
+  display: block;
+  position: relative;
+  color: #828489;
+  text-transform: none;
 }
 .page-etusivu h2,
 .page-etusivu .h2,
