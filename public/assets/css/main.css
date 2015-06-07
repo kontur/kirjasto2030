@@ -2328,3 +2328,10 @@ nav.stories .ingress {
 .page-toimijaverkosto #ant.active .node text {
   fill: #828489;
 }
+.page-raportti {
+  box-sizing: border-box;
+  max-width: 40em;
+  margin: 0 auto;
+  padding: 0 1rem 5rem;
+  overflow-x: hidden;
+}
