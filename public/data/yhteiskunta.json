@@ -11,7 +11,7 @@
         {"name": "Työsuhdemuotoja",
           "children": [
             {"name": "Etätyö"},
-            {"name": "Itsensätyöllistäminen"}
+            {"name": "Itsensätyöllistäminen"},
             {"name": "Freelancer"}
           ]
         }
