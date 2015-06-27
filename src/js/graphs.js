@@ -100,7 +100,6 @@ function drawANT() {
   var width = $("main").width(),
     height = $("body").height();
 
-  console.log(width, height);
   /*
    0 = valtio
    1 = laki
