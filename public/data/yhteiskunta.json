@@ -12,7 +12,8 @@
           "children": [
             {"name": "Etätyö"},
             {"name": "Itsensätyöllistäminen"},
-            {"name": "Freelancer"}
+            {"name": "Freelancer"},
+            {"name": "Pätkätyö"}
           ]
         }
       ]
@@ -22,7 +23,8 @@
       "children": [
         {"name": "Tee-se-itse"},
         {"name": "Kierrätäminen"},
-        {"name": "Omistajuuden murros"}
+        {"name": "Omistajuuden murros"},
+        {"name": "Aikapankit"}
       ]
     },
     {
@@ -30,7 +32,8 @@
       "children": [
         {"name": "Kansalaisaloitteet"},
         {"name": "Lähidemokraatia"},
-        {"name": "Ikäntyminen"}
+        {"name": "Ikäntyminen"},
+        {"name": "Hyperlokaalit yhteisöt"}
       ]
     }
   ]

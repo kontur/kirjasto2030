@@ -6,7 +6,8 @@
       "children": [
         {"name": "5G-verkkoyhteydet"},
         {"name": "Pilvipalvelut"},
-        {"name": "Internet of things"}
+        {"name": "Internet of things"},
+        {"name": "P2P jakelu"}
       ]
     },
     {
