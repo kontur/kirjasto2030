@@ -2,6 +2,10 @@
 This website serves as an interactive report and visualization on a scenario for the future development of libraries
 up until 2030.
 
+This scenario was created during a cross-disciplinary course at Aalto University in Winter 2014 - Spring 2015.
+
+Online at [kirjasto2030.herokuapp.com](kirjasto2030.herokuapp.com)
+
 # Installation and contributing instructions
 
 ## Dev requirements
