@@ -19,14 +19,14 @@ var app = $.sammy(function () {
   // NOTE routes that are not as indexes in this object will redirect to index
   var routesConfig = {
     "etusivu": [false, ['#/teknologia', 'Teknologia']],
-    "teknologia": [["#/etusivu", "Edellinen"], ["#/laki", "Laki"]],
-    "teknologia-tarinat": [["#/teknologia", "Edellinen"], ["#/laki", "Laki"]],
-    "laki": [["#/teknologia", "Edellinen"], ["#/yhteiskunta", "Yhteiskunta"]],
-    "laki-tarinat": [["#/laki", "Edellinen"], ["#/yhteiskunta", "Yhteiskunta"]],
-    "yhteiskunta": [["#/laki", "Edellinen"]],
-    "yhteiskunta-tarinat": [["#/yhteiskunta", "Edellinen"]],
-    "raportti": [["#/etusivu", "Edellinen"], false],
-    "toimijaverkosto": [["#/etusivu", "Edellinen"], false]
+    "teknologia": [["#/etusivu", "Etusivu"], ["#/laki", "Laki"]],
+    "teknologia-tarinat": [["#/teknologia", "Teknologia"], ["#/laki", "Laki"]],
+    "laki": [["#/teknologia", "Teknologia"], ["#/yhteiskunta", "Yhteiskunta"]],
+    "laki-tarinat": [["#/laki", "Laki"], ["#/yhteiskunta", "Yhteiskunta"]],
+    "yhteiskunta": [["#/laki", "Laki"]],
+    "yhteiskunta-tarinat": [["#/yhteiskunta", "Yhteiskunta"]],
+    "raportti": [["#/etusivu", "Etusivu"], false],
+    "toimijaverkosto": [["#/etusivu", "Etusivu"], false]
   };
 
 
