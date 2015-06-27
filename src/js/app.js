@@ -38,7 +38,7 @@ var app = $.sammy(function () {
    * @param page is the file in the "partials" directory - .html extension
    */
   var loadContent = function (page, callback) {
-    //console.log("loadContent", page, typeof callback === "function");
+    console.log("loadContent", page, typeof callback === "function");
     var transitionStart = new Date().getTime();
     $("body").addClass("loading");
     $("main").addClass("transition");
@@ -199,6 +199,11 @@ var app = $.sammy(function () {
   });
   // redirect landing page to intro
   this.get("", function () {
+    if (window.location.href.indexOf("assets") > -1) {
+      // stop sammyjs from catching this url and just bump the user there
+      window.location.reload(true);
+      this.unload();
+    }
     this.redirect("#/etusivu");
   });
 

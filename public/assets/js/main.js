@@ -1,4 +1,4 @@
-/*! kirjasto2030 - v0.0.0 - 2015-06-27
+/*! kirjasto2030 - v0.0.0 - 2015-06-28
 * Copyright (c) 2015 ;*/
 // using sammy framework for simple routing, nothing much more at the moment 
 var app = $.sammy(function () {
@@ -35,7 +35,7 @@ var app = $.sammy(function () {
    * @param page is the file in the "partials" directory - .html extension
    */
   var loadContent = function (page, callback) {
-    //console.log("loadContent", page, typeof callback === "function");
+    console.log("loadContent", page, typeof callback === "function");
     var transitionStart = new Date().getTime();
     $("body").addClass("loading");
     $("main").addClass("transition");
@@ -196,6 +196,11 @@ var app = $.sammy(function () {
   });
   // redirect landing page to intro
   this.get("", function () {
+    if (window.location.href.indexOf("assets") > -1) {
+      // stop sammyjs from catching this url and just bump the user there
+      window.location.reload(true);
+      this.unload();
+    }
     this.redirect("#/etusivu");
   });
 
