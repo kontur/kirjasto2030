@@ -6,7 +6,8 @@
       "children": [
         {"name": "Kirjastolaki"},
         {"name": "Eduskunta"},
-        {"name": "Korkein oikeus"}
+        {"name": "Ennakkopäätökset"},
+        {"name": "Oikeuslaitos"}
       ]
     },
     {
@@ -19,9 +20,10 @@
     {
       "name": "IPR",
       "children": [
-        {"name": "Tekijänoikeus"},
+        {"name": "Tekijänoikeudet"},
         {"name": "Streaming"},
-        {"name": "Royalties"}
+        {"name": "Rojaltimaksut"},
+        {"name": "Lainauskorvaukset"}
       ]
     }
   ]

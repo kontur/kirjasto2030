@@ -1,7 +1,7 @@
 {
   "nodes":[
     {"id":0,"name":"Suomen Valtio","group":1,"value":7},
-    {"id":1,"name":"YLE","group":1,"value":4},
+    {"id":1,"name":"Yle","group":1,"value":4},
     {"id":2,"name":"Kirjastolaki","group":2,"value":3},
     {"id":3,"name":"EU","group":1,"value":6},
     {"id":4,"name":"Korkein oikeus","group":2,"value":3},
@@ -37,6 +37,7 @@
     {"source":11,"target":9,"value":3},
     {"source":11,"target":5,"value":2},
     {"source":12,"target":6,"value":3},
+    {"source":13,"target":1,"value":1},
     {"source":13,"target":2,"value":2},
     {"source":13,"target":5,"value":5},
     {"source":13,"target":6,"value":8},

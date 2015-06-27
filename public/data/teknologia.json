@@ -4,8 +4,7 @@
     {
       "name": "Infrastruktuuri",
       "children": [
-        {"name": "Verkkoyhteydet"},
-        {"name": "Langaton laajakaista"},
+        {"name": "5G-verkkoyhteydet"},
         {"name": "Pilvipalvelut"},
         {"name": "Internet of things"}
       ]
@@ -22,11 +21,10 @@
     {
       "name": "Digitaalisaatio",
       "children": [
-        {"name": "Jakeluformatit"},
+        {"name": "Jakeluformaatit"},
         {"name": "E-paperi"},
         {"name": "E-kirja"},
-        {"name": "Read on demand"},
-        {"name": "Mediakulutus"}
+        {"name": "Read on demand"}
       ]
     }
   ]

@@ -5,23 +5,24 @@
       "name": "Liikuvuus",
       "children": [
         {"name": "Muutoliike"},
-        {"name": "Hajaasutus"},
+        {"name": "Haja-asutus"},
         {"name": "Työmatka"},
-        {"name": "Downsizing"},
+        {"name": "Downshifting"},
         {"name": "Työsuhdemuotoja",
           "children": [
             {"name": "Etätyö"},
-            {"name": "Itsensätyöllistäminen"}
+            {"name": "Itsensätyöllistäminen"},
+            {"name": "Freelancer"}
           ]
         }
       ]
     },
     {
-      "name": "Jakaminen",
+      "name": "Jakamistalous",
       "children": [
-        {"name": "Tee se itse"},
-        {"name": "Kierätäminen"},
-        {"name": "Omistajuus"}
+        {"name": "Tee-se-itse"},
+        {"name": "Kierrätäminen"},
+        {"name": "Omistajuuden murros"}
       ]
     },
     {
