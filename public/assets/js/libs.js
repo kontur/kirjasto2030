@@ -1,4 +1,4 @@
-/*! kirjasto2030 - v0.0.0 - 2015-06-07
+/*! kirjasto2030 - v0.0.0 - 2015-06-28
 * Copyright (c) 2015 ;*/
 /*!
  * jQuery JavaScript Library v2.1.3

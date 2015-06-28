@@ -32,13 +32,13 @@ var app = $.sammy(function () {
 
   // helpers
   //========
-
+ 
   /**
    * unified ajax call to fetch the content
    * @param page is the file in the "partials" directory - .html extension
    */
   var loadContent = function (page, callback) {
-    console.log("loadContent", page, typeof callback === "function");
+    //console.log("loadContent", page, typeof callback === "function");
     var transitionStart = new Date().getTime();
     $("body").addClass("loading");
     $("main").addClass("transition");
